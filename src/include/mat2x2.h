@@ -2,6 +2,7 @@
 #define MATH_MAT2_H
 #include "types.h"
 #include "error.h"
+#include "vec2.h"
 
 def_mat(float, 2, 2);
 
@@ -62,6 +63,24 @@ static inline mat2x2_float mat2x2comp(mat2x2_float* a, mat2x2_float* b) {
         a->val[0][0] * b->val[0][1] + a->val[0][1] * b->val[1][1]},
         {a->val[1][0] * b->val[0][0] + a->val[1][1] * b->val[1][0],
         a->val[1][0] * b->val[0][1] + a->val[1][1] * b->val[1][1]}
+    }};
+}
+
+
+/** 
+ *
+ * @brief Applies Matrix A to vector
+ *
+ * @param m A 2x2 Matrix
+ * @param v A 2 component Vector
+ *
+ * @return A 2 component Vector with A applied.
+ * */
+static inline vec2float mat2x2app(mat2x2_float* m, vec2float* v) {
+    return (vec2float){
+    {
+    (v->val[0] * m->val[0][0]) + (v->val[1] * m->val[0][1]),
+    (v->val[0] * m->val[1][0]) + (v->val[1] * m->val[1][1])
     }};
 }
 
