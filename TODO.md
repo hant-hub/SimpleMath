@@ -1,2 +1,2 @@
-- [] Trigonometry
-- [] Rendering
+- [ ] Trigonometry
+- [ ] Rendering
