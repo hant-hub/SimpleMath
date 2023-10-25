@@ -1,7 +1,7 @@
 #ifndef MATH_MAT2_H
 #define MATH_MAT2_H
 #include "types.h"
-#include "error.h"
+#include "../error.h"
 #include "vec2.h"
 
 def_mat(float, 2, 2);

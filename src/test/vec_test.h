@@ -1,19 +1,19 @@
 #ifndef vec_test_h
 #define vec_test_h
-#include "../include/types.h"
-#include "../include/vec2.h"
-#include "../include/ivec2.h"
-#include "../include/vec3.h"
-#include "../include/ivec3.h"
-#include "../include/vec4.h"
-#include "../include/ivec4.h"
+#include "../include/linAlg/types.h"
+#include "../include/linAlg/vec2.h"
+#include "../include/linAlg/ivec2.h"
+#include "../include/linAlg/vec3.h"
+#include "../include/linAlg/ivec3.h"
+#include "../include/linAlg/vec4.h"
+#include "../include/linAlg/ivec4.h"
 #include "logger.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 static void test_vec2dot() {
-    printf("Vec2 Dot Test... ");
+    printf("\tVec2 Dot Test... ");
     vec2float a = {1, 2};
     vec2float b = {3, 4};
     float expected = 11;
@@ -26,7 +26,7 @@ static void test_vec2dot() {
 
 }
 static void test_ivec2dot() {
-    printf("IVec2 Dot Test... ");
+    printf("\tIVec2 Dot Test... ");
     vec2int a = {1, 2};
     vec2int b = {3, 4};
     float expected = 11;
@@ -40,7 +40,7 @@ static void test_ivec2dot() {
 }
 
 static void test_vec2mult() {
-    printf("Vec2 Mult Test... ");
+    printf("\tVec2 Mult Test... ");
     vec2float a = {1, 2};
     vec2float b = {3, 4};
     vec2float expected = {3.0f, 8.0f};
@@ -55,7 +55,7 @@ static void test_vec2mult() {
 
 }
 static void test_ivec2mult() {
-    printf("IVec2 Mult Test... ");
+    printf("\tIVec2 Mult Test... ");
     vec2int a = {1, 2};
     vec2int b = {3, 4};
     vec2int expected = {3, 8};
@@ -72,7 +72,7 @@ static void test_ivec2mult() {
 
 
 static void test_vec2add() {
-    printf("Vec2 Add Test... ");
+    printf("\tVec2 Add Test... ");
     vec2float a = {1, 2};
     vec2float b = {3, 4};
     vec2float expected = {4, 6};
@@ -88,7 +88,7 @@ static void test_vec2add() {
 
 }
 static void test_ivec2add() {
-    printf("IVec2 Add Test... ");
+    printf("\tIVec2 Add Test... ");
     vec2int a = {1, 2};
     vec2int b = {3, 4};
     vec2int expected = {4, 6};
@@ -105,7 +105,7 @@ static void test_ivec2add() {
 }
 
 static void test_vec3dot() {
-    printf("Vec3 Dot Test... ");
+    printf("\tVec3 Dot Test... ");
     vec3float a = {1, 2, 3};
     vec3float b = {3, 4, 2};
     float expected = 17;
@@ -118,7 +118,7 @@ static void test_vec3dot() {
 
 }
 static void test_ivec3dot() {
-    printf("IVec3 Dot Test... ");
+    printf("\tIVec3 Dot Test... ");
     vec3int a = {1, 2, 3};
     vec3int b = {3, 4, 2};
     int expected = 17;
@@ -132,7 +132,7 @@ static void test_ivec3dot() {
 }
 
 static void test_vec3mult() {
-    printf("Vec3 Mult Test... ");
+    printf("\tVec3 Mult Test... ");
     vec3float a = {1, 2, 3};
     vec3float b = {3, 4, 2};
     vec3float expected = {3.0f, 8.0f, 6.0f};
@@ -147,7 +147,7 @@ static void test_vec3mult() {
 
 }
 static void test_ivec3mult() {
-    printf("IVec3 Mult Test... ");
+    printf("\tIVec3 Mult Test... ");
     vec3int a = {1, 2, 3};
     vec3int b = {3, 4, 2};
     vec3int expected = {3, 8, 6};
@@ -164,7 +164,7 @@ static void test_ivec3mult() {
 
 
 static void test_vec3add() {
-    printf("Vec3 Add Test... ");
+    printf("\tVec3 Add Test... ");
     vec3float a = {1, 2, 3};
     vec3float b = {3, 4, 2};
     vec3float expected = {4, 6, 5};
@@ -178,7 +178,7 @@ static void test_vec3add() {
     }
 }
 static void test_ivec3add() {
-    printf("IVec3 Add Test... ");
+    printf("\tIVec3 Add Test... ");
     vec3int a = {1, 2, 3};
     vec3int b = {3, 4, 2};
     vec3int expected = {4, 6, 5};
@@ -193,7 +193,7 @@ static void test_ivec3add() {
 }
 
 static void test_vec3cross() {
-    printf("Vec3 Cross Test... ");
+    printf("\tVec3 Cross Test... ");
     vec3float a = {1, 2, 3};
     vec3float b = {3, 4, 2};
     vec3float expected = {-8, 7, -2};
@@ -207,7 +207,7 @@ static void test_vec3cross() {
     }
 }
 static void test_ivec3cross() {
-    printf("IVec3 Cross Test... ");
+    printf("\tIVec3 Cross Test... ");
     vec3int a = {1, 2, 3};
     vec3int b = {3, 4, 2};
     vec3int expected = {-8, 7, -2};
@@ -226,7 +226,7 @@ static void test_ivec3cross() {
 
 static void test_vec4dot() {
     
-    printf("Vec4 Dot Test... ");
+    printf("\tVec4 Dot Test... ");
     vec4float a = {1, 2, 3, 4};
     vec4float b = {3, 4, 2, 1};
     float expected = 21;
@@ -240,7 +240,7 @@ static void test_vec4dot() {
 }
 static void test_ivec4dot() {
     
-    printf("IVec4 Dot Test... ");
+    printf("\tIVec4 Dot Test... ");
     vec4int a = {1, 2, 3, 4};
     vec4int b = {3, 4, 2, 1};
     int expected = 21;
@@ -254,7 +254,7 @@ static void test_ivec4dot() {
 }
 
 static void test_vec4mult() {
-    printf("Vec4 Mult Test... ");
+    printf("\tVec4 Mult Test... ");
     vec4float a = {1, 2, 3, 4};
     vec4float b = {3, 4, 2, 1};
     vec4float expected = {3.0f, 8.0f, 6.0f, 4.0f};
@@ -269,7 +269,7 @@ static void test_vec4mult() {
 
 }
 static void test_ivec4mult() {
-    printf("IVec4 Mult Test... ");
+    printf("\tIVec4 Mult Test... ");
     vec4int a = {1, 2, 3, 4};
     vec4int b = {3, 4, 2, 1};
     vec4int expected = {3, 8, 6, 4};
@@ -286,7 +286,7 @@ static void test_ivec4mult() {
 
 
 static void test_vec4add() {
-    printf("Vec4 Add Test... ");
+    printf("\tVec4 Add Test... ");
     vec4float a = {1, 2, 3, 4};
     vec4float b = {3, 4, 2, 1};
     vec4float expected = {4, 6, 5, 5};
@@ -300,7 +300,7 @@ static void test_vec4add() {
     }
 }
 static void test_ivec4add() {
-    printf("IVec4 Add Test... ");
+    printf("\tIVec4 Add Test... ");
     vec4int a = {1, 2, 3, 4};
     vec4int b = {3, 4, 2, 1};
     vec4int expected = {4, 6, 5, 5};
@@ -349,7 +349,7 @@ static void test_vec() {
     test_ivec4mult();
     test_ivec4add();
     
-    printf("\e[1;1H\e[2J");
+    //printf("\t\e[1;1H\e[2J");
     printf("Vec Tests... " GREEN "passed " CHECK NRM "\n");
 
 };

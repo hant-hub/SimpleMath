@@ -1,7 +1,7 @@
 #ifndef MATH_MAT3_H
 #define MATH_MAT3_H
 #include "types.h"
-#include "error.h"
+#include "../error.h"
 #include "vec3.h"
 
 def_mat(float, 3, 3);
