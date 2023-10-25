@@ -1,3 +1,4 @@
+# TODO
 - [ ] Trigonometry
     - [ ] sin
     - [ ] cos
@@ -12,4 +13,12 @@
     - [ ] tools for translation matrix
     - [ ] tools for view matrix
     - [ ] tools for projection matrix
+- [ ] Linear Algebra
+    - [ ] Elementry Row Operations
+    - [ ] Gauss-Jordan Elimination
+    - [ ] Transpose
+    - [ ] Inverse
+    - [ ] Non-Square Matricies?
+    - [ ] Nested Matricies
 - [ ] SIMD
+
