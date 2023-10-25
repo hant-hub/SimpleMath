@@ -1,2 +1,15 @@
 - [ ] Trigonometry
+    - [ ] sin
+    - [ ] cos
+    - [ ] radians
+    - [ ] degrees
+    - [ ] tan
+    - [ ] arcsin
+    - [ ] arccos
+    - [ ] arctan
 - [ ] Rendering
+    - [ ] initialize identity matrix
+    - [ ] tools for translation matrix
+    - [ ] tools for view matrix
+    - [ ] tools for projection matrix
+- [ ] SIMD
