@@ -8,7 +8,8 @@ build/./src/test/main.c.o: src/test/main.c src/test/logger.h \
  src/test/../include/linAlg/../error.h src/test/../include/linAlg/vec2.h \
  src/test/../include/linAlg/mat3x3.h src/test/../include/linAlg/vec3.h \
  src/test/../include/linAlg/mat4x4.h src/test/../include/linAlg/vec4.h \
- src/test/../include/linAlg/mat3x3.h
+ src/test/../include/linAlg/mat3x3.h src/test/trig_test.h \
+ src/test/../include/trig/cos.h src/test/../include/trig/types.h
 
 src/test/logger.h:
 
@@ -47,3 +48,9 @@ src/test/../include/linAlg/mat4x4.h:
 src/test/../include/linAlg/vec4.h:
 
 src/test/../include/linAlg/mat3x3.h:
+
+src/test/trig_test.h:
+
+src/test/../include/trig/cos.h:
+
+src/test/../include/trig/types.h:
