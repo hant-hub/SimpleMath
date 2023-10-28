@@ -46,7 +46,7 @@ static inline float cos_r(radians theta) {
 }
 
 static inline float cos_d(degrees theta) {
-    return -2;
+    return cos_r(DegreestoRadians(theta));
 }
 
 

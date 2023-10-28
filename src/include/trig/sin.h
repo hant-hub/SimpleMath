@@ -30,7 +30,7 @@ static inline float sin_r(radians theta) {
 }
 
 static inline float sin_d(degrees theta) {
-    return -2;
+    return sin_r(DegreestoRadians(theta));
 }
 
 

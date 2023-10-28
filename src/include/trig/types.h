@@ -23,5 +23,21 @@ static inline degrees normalize_d(degrees theta) {
 }
 
 
+static inline radians DegreestoRadians(degrees theta) {
+    static const float ratio = 1.0f/360.0f;
+    float x = theta.val;
+    x *= ratio;
+    x *= 2*pi;
+    return (radians){x};
+}
+
+static inline degrees RadianstoDegrees(radians theta) {
+    static const float ratio = 1.0f/(2*pi);
+    float x = theta.val;
+    x *= ratio;
+    x *= 360;
+    return (degrees){x};
+}
+
 
 #endif
