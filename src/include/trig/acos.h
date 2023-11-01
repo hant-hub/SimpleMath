@@ -13,12 +13,7 @@
 
 
 /* 
- * @brief Compute Cos function in Radians
- *
- * Computes Cos using the Bhaskaraa approximation
- *
- *
- *
+ * @brief Compute inverse Cos function in Radians
  *
  * @param theta Angle in radians
  * @return Returns a floating point value

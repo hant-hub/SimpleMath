@@ -29,6 +29,18 @@ static inline float sin_r(radians theta) {
     return cos_r(theta);
 }
 
+/* 
+ * @brief Compute Sin function in Degrees
+ *
+ * Computes Sin using the Bhaskaraa approximation
+ *
+ *
+ *
+ *
+ * @param theta Angle in degrees
+ * @return Returns a floating point value
+ *
+ * */
 static inline float sin_d(degrees theta) {
     return sin_r(DegreestoRadians(theta));
 }

@@ -45,6 +45,18 @@ static inline float cos_r(radians theta) {
     return result;
 }
 
+/* 
+ * @brief Compute Cos function in Degrees
+ *
+ * Computes Cos using the Bhaskaraa approximation
+ *
+ *
+ *
+ *
+ * @param theta Angle in degrees
+ * @return Returns a floating point value
+ *
+ * */
 static inline float cos_d(degrees theta) {
     return cos_r(DegreestoRadians(theta));
 }

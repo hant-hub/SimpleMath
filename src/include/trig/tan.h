@@ -4,13 +4,28 @@
 #include "cos.h"
 #include "sin.h"
 
+/* 
+ * @brief Calculates Tangent in Radians
+ * @param theta Angle in Radians
+ *
+ * @return Returns a floating point value
+ *
+ * */
 static inline float tan_r(radians theta) {
     return sin_r(theta)/cos_r(theta);
 }
 
 
+/* 
+ * @brief Calculates Tangent in Degrees
+ * @param theta Angle in Degrees
+ *
+ * @return Returns a floating point value
+ *
+ * */
 static inline float tan_d(degrees theta) {
-    return sin_d(theta)/cos_d(theta);
+    radians angle = DegreestoRadians(theta);
+    return sin_r(angle)/cos_r(angle);
 }
 
 
