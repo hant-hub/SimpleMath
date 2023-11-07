@@ -1,13 +1,13 @@
 # TODO
-- [ ] Trigonometry
-    - [ ] sin
-    - [ ] cos
-    - [ ] radians
-    - [ ] degrees
-    - [ ] tan
-    - [ ] arcsin
-    - [ ] arccos
-    - [ ] arctan
+- [x] Trigonometry
+    - [x] sin
+    - [x] cos
+    - [x] radians
+    - [x] degrees
+    - [x] tan
+    - [x] arcsin
+    - [x] arccos
+    - [x] arctan
 - [ ] Rendering
     - [ ] initialize identity matrix
     - [ ] tools for translation matrix
