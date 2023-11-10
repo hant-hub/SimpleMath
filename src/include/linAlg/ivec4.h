@@ -80,6 +80,15 @@ static inline vec4int ivec4mult(vec4int a, vec4int b) {
     };
 }
 
-
+/** 
+ * @brief Scales a Vector
+ * @param a four component int vector.
+ * @param s scalar int.
+ *
+ * @return Returns a vector scaled by s
+ * */
+static inline const vec4int ivec4scale(vec4int a, int s) {
+    return (vec4int){a.val[0]*s, a.val[1]*s, a.val[2]*s, a.val[3] *s};
+}
 
 #endif

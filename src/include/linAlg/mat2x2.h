@@ -6,6 +6,16 @@
 
 def_mat(float, 2, 2);
 
+
+
+const static mat2x2_float mat2x2_float_identity = {{
+    {1, 0},
+    {0, 1}
+}};
+
+
+
+
 /** 
  *
  * @brief Tests if two mat2x2 are equivalent
@@ -84,6 +94,49 @@ static inline vec2float mat2x2app(mat2x2_float* m, vec2float* v) {
     }};
 }
 
+
+// Elementary Row Operations
+
+/** 
+ * @brief Scales a matrix Row
+ * @param m 2x2 matrix to be modified
+ * @param s floating point scalar
+ * @param row Index of row to be scaled
+ *
+ * */
+static inline void mat2x2RowMult(mat2x2_float* m, float s, int row) {
+    m->val[row][0] = m->val[row][0]*s;  
+    m->val[row][1] = m->val[row][1]*s;
+}
+
+/** 
+ * @brief Swap two rows in a matrix
+ * @param m 2x2 matrix to be modified
+ * @param row1 First Index of matrix
+ * @param row2 Second Index of matrix
+ *
+ * */
+static inline void mat2x2RowSwap(mat2x2_float* m, int row1, int row2) {
+    float temp[2] = {m->val[row1][0], m->val[row1][1]};
+
+    m->val[row1][0] = m->val[row2][0];
+    m->val[row1][1] = m->val[row2][1];
+
+    m->val[row2][0] = temp[0];
+    m->val[row2][1] = temp[1];
+}
+
+/** 
+ * @brief Replace Row with sum of Itself and another row
+ * @param m Matrix to be modified
+ * @param src Row that won't be modified
+ * @param dest Row to be modified
+ * @param s Scalar which is multiplied with src row before addition
+ * */
+static inline void mat2x2RowAdd(mat2x2_float* m, int src, int dest, float s) {
+    m->val[dest][0] += m->val[src][0] * s;
+    m->val[dest][1] += m->val[src][1] * s;
+}
 
 
 

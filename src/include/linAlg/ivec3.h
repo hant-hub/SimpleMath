@@ -51,6 +51,20 @@ static inline const vec3int ivec3mult(vec3int a, vec3int b) {
                        a.val[2]*b.val[2]};
 }
 
+
+/** 
+ * @brief Scales a Vector
+ * @param a three component int vector.
+ * @param s scalar int.
+ *
+ * @return Returns a vector scaled by s
+ * */
+static inline const vec3int ivec3scale(vec3int a, int s) {
+    return (vec3int){a.val[0]*s, a.val[1]*s, a.val[2]*s};
+}
+
+
+
 /**
  *
  * @brief Add vectors component wise.

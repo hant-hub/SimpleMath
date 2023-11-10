@@ -51,6 +51,20 @@ static inline const vec3float vec3mult(vec3float a, vec3float b) {
                        a.val[2]*b.val[2]};
 }
 
+
+/** 
+ * @brief Scales a Vector
+ * @param a three component float vector.
+ * @param s scalar float.
+ *
+ * @return Returns a vector scaled by s
+ * */
+static inline const vec3float vec3scale(vec3float a, float s) {
+    return (vec3float){a.val[0]*s, a.val[1]*s, a.val[2]*s};
+}
+
+
+
 /**
  *
  * @brief Add vectors component wise.

@@ -48,6 +48,19 @@ static inline const vec2float vec2mult(vec2float a, vec2float b) {
     return (vec2float){a.val[0]*b.val[0], a.val[1]*b.val[1]};
 }
 
+/** 
+ * @brief Scales a Vector
+ * @param a Two component float vector.
+ * @param s scalar float.
+ *
+ * @return Returns a vector scaled by s
+ * */
+static inline const vec2float vec2scale(vec2float a, float s) {
+    return (vec2float){a.val[0]*s, a.val[1]*s};
+}
+
+
+
 /**
  *
  * @brief Add vectors component wise.

@@ -6,6 +6,15 @@
 
 def_mat(float, 3, 3);
 
+const static mat3x3_float mat3x3_float_identity = {{
+    {1, 0, 0},
+    {0, 1, 0},
+    {0, 0, 1}
+}};
+
+
+
+
 /** 
  *
  * @brief Tests if two mat3x3 are equivalent
@@ -100,6 +109,52 @@ static inline mat3x3_float mat3x3comp(mat3x3_float* a, mat3x3_float* b) {
 }
 
 
+// Elementary Row Operations
+
+/** 
+ * @brief Scales a matrix Row
+ * @param m Matrix to be modified
+ * @param s floating point scalar
+ * @param row Index of row to be scaled
+ *
+ * */
+static inline void mat3x3RowMult(mat3x3_float* m, float s, int row) {
+    m->val[row][0] *= s;  
+    m->val[row][1] *= s;
+    m->val[row][2] *= s;
+}
+
+/** 
+ * @brief Swap two rows in a matrix
+ * @param m Matrix to be modified
+ * @param row1 First Index of matrix
+ * @param row2 Second Index of matrix
+ *
+ * */
+static inline void mat3x3RowSwap(mat3x3_float* m, int row1, int row2) {
+    float temp[3] = {m->val[row1][0], m->val[row1][1], m->val[row1][2]};
+
+    m->val[row1][0] = m->val[row2][0];
+    m->val[row1][1] = m->val[row2][1];
+    m->val[row1][2] = m->val[row2][2];
+
+    m->val[row2][0] = temp[0];
+    m->val[row2][1] = temp[1];
+    m->val[row2][2] = temp[2];
+}
+
+/** 
+ * @brief Replace Row with sum of Itself and another row
+ * @param m Matrix to be modified
+ * @param src Row that won't be modified
+ * @param dest Row to be modified
+ * @param s Scalar which is multiplied with src row before addition
+ * */
+static inline void mat3x3RowAdd(mat3x3_float* m, int src, int dest, float s) {
+    m->val[dest][0] += m->val[src][0] * s;
+    m->val[dest][1] += m->val[src][1] * s;
+    m->val[dest][2] += m->val[src][2] * s;
+}
 
 
 

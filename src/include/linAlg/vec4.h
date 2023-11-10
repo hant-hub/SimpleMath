@@ -81,5 +81,15 @@ static inline vec4float vec4mult(vec4float a, vec4float b) {
 }
 
 
+/** 
+ * @brief Scales a Vector
+ * @param a four component float vector.
+ * @param s scalar float.
+ *
+ * @return Returns a vector scaled by s
+ * */
+static inline const vec4float vec4scale(vec4float a, float s) {
+    return (vec4float){a.val[0]*s, a.val[1]*s, a.val[2]*s, a.val[3] * s};
+}
 
 #endif

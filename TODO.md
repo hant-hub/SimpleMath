@@ -14,7 +14,7 @@
     - [ ] tools for view matrix
     - [ ] tools for projection matrix
 - [ ] Linear Algebra
-    - [ ] Elementry Row Operations
+    - [x] Elementry Row Operations
     - [ ] Gauss-Jordan Elimination
     - [ ] Transpose
     - [ ] Inverse

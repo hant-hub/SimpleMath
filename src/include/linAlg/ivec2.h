@@ -45,6 +45,19 @@ static inline const vec2int ivec2mult(vec2int a, vec2int b) {
     return (vec2int){a.val[0]*b.val[0], a.val[1]*b.val[1]};
 }
 
+/** 
+ * @brief Scales a Vector
+ * @param a Two component int vector.
+ * @param s scalar int.
+ *
+ * @return Returns a vector scaled by s
+ * */
+static inline const vec2int ivec2scale(vec2int a, int s) {
+    return (vec2int){a.val[0]*s, a.val[1]*s};
+}
+
+
+
 /**
  *
  * @brief Add vectors component wise.

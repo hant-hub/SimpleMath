@@ -313,6 +313,11 @@ static void test_mat4app() {
     }
 }
 
+//write ERO tests
+
+
+
+
 static void test_mat() {
     test_mat2add();
     test_mat2det();
