@@ -314,10 +314,213 @@ static void test_mat4app() {
 }
 
 //write ERO tests
+static void test_mat2ERO() {
+    printf("\tMat2x2 ERO Testing... \n");
+    int success = 1;
 
 
+    printf("\t\t\tSwap Tests... ");
+    mat2x2_float m = mat2x2_float_identity;
+    mat2x2RowSwap(&m, 1, 0);
+
+    mat2x2_float expected = (mat2x2_float){{
+        {0, 1},
+        {1, 0}
+    }};
 
 
+    if (mat2x2_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+    
+    printf("\t\t\tMult Tests... ");
+    m = mat2x2_float_identity;
+    mat2x2RowMult(&m, 2, 0);
+
+    expected = (mat2x2_float){{
+        {2, 0},
+        {0, 1}
+    }};
+
+
+    if (mat2x2_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+
+
+    printf("\t\t\tAdd Tests... ");
+    m = mat2x2_float_identity;
+    mat2x2RowAdd(&m, 1, 0, 2);
+
+    expected = (mat2x2_float){{
+        {1, 2},
+        {0, 1}
+    }};
+
+
+    if (mat2x2_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+
+    if (success) {
+        printf("\t\tMat2x2 ERO " GREEN "passed" CHECK NRM "\n");
+    } else {
+        printf("\t\tMat2x2 ERO " RED "failed" CROSS NRM "\n");
+        exit(0);
+    }
+
+}
+
+static void test_mat3ERO() {
+    printf("\tMat3x3 ERO Testing... \n");
+    int success = 1;
+
+
+    printf("\t\t\tSwap Tests... ");
+    mat3x3_float m = mat3x3_float_identity;
+    mat3x3RowSwap(&m, 1, 0);
+
+    mat3x3_float expected = (mat3x3_float){{
+        {0, 1, 0},
+        {1, 0, 0},
+        {0, 0, 1}
+    }};
+
+
+    if (mat3x3_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+    
+    printf("\t\t\tMult Tests... ");
+    m = mat3x3_float_identity;
+    mat3x3RowMult(&m, 2, 0);
+
+    expected = (mat3x3_float){{
+        {2, 0, 0},
+        {0, 1, 0},
+        {0, 0, 1}
+    }};
+
+
+    if (mat3x3_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+
+
+    printf("\t\t\tAdd Tests... ");
+    m = mat3x3_float_identity;
+    mat3x3RowAdd(&m, 1, 0, 2);
+
+    expected = (mat3x3_float){{
+        {1, 2, 0},
+        {0, 1, 0},
+        {0, 0, 1}
+    }};
+
+
+    if (mat3x3_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+
+    if (success) {
+        printf("\t\tMat3x3 ERO " GREEN "passed" CHECK NRM "\n");
+    } else {
+        printf("\t\tMat3x3 ERO " RED "failed" CROSS NRM "\n");
+        exit(0);
+    }
+
+}
+
+
+static void test_mat4ERO() {
+    printf("\tMat4x4 ERO Testing... \n");
+    int success = 1;
+
+
+    printf("\t\t\tSwap Tests... ");
+    mat4x4_float m = mat4x4_float_identity;
+    mat4x4RowSwap(&m, 1, 0);
+
+    mat4x4_float expected = (mat4x4_float){{
+        {0, 1, 0, 0},
+        {1, 0, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    }};
+
+
+    if (mat4x4_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+    
+    printf("\t\t\tMult Tests... ");
+    m = mat4x4_float_identity;
+    mat4x4RowMult(&m, 2, 0);
+
+    expected = (mat4x4_float){{
+        {2, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    }};
+
+
+    if (mat4x4_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+
+
+    printf("\t\t\tAdd Tests... ");
+    m = mat4x4_float_identity;
+    mat4x4RowAdd(&m, 1, 0, 2);
+
+    expected = (mat4x4_float){{
+        {1, 2, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    }};
+
+
+    if (mat4x4_float_eq(&m, &expected)) {
+        printf(GREEN "passed " CHECK NRM "\n");
+    } else {
+        printf(RED "failed " CROSS NRM "\n");
+        success = 0;
+    }
+
+    if (success) {
+        printf("\t\tMat4x4 ERO " GREEN "passed" CHECK NRM "\n");
+    } else {
+        printf("\t\tMat4x4 ERO " RED "failed" CROSS NRM "\n");
+        exit(0);
+    }
+
+}
 static void test_mat() {
     test_mat2add();
     test_mat2det();
@@ -333,6 +536,10 @@ static void test_mat() {
     test_mat4det();
     test_mat4comp();
     test_mat4app();
+
+    test_mat2ERO();
+    test_mat3ERO();
+    test_mat4ERO();
 
     //printf("\t\e[1;1H\e[2J");
     printf("Mat Tests... " GREEN "passed " CHECK NRM "\n");
