@@ -39,6 +39,23 @@ static inline vec4float vec4add(vec4float a, vec4float b) {
     };
 }
 
+/** 
+ *
+ * @brief Returns Component difference of two 4 component Vectors.
+ *
+ * @param a Four component floating point vector.
+ * @param b Four component floating point vector.
+ *
+ * @return Four Component Difference.
+ * */
+static inline vec4float vec4sub(vec4float a, vec4float b) {
+    return (vec4float){
+    a.val[0] - b.val[0],
+    a.val[1] - b.val[1],
+    a.val[2] - b.val[2],
+    a.val[3] - b.val[3]
+    };
+}
 
 
 /** 

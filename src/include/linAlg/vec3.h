@@ -82,6 +82,22 @@ static inline const vec3float vec3add(vec3float a, vec3float b) {
 
 /**
  *
+ * @brief Subtracts vectors component wise.
+ *
+ * @param a Three component Floating point vector.
+ * @param b Three component Floating point vector.
+ *
+ * @return Returns a vector containing the component wise difference.
+ * */
+static inline const vec3float vec3sub(vec3float a, vec3float b) {
+    return (vec3float){a.val[0]-b.val[0],
+                       a.val[1]-b.val[1],
+                       a.val[2]-b.val[2]};
+}
+
+
+/**
+ *
  * @brief Right Handed Cross Product
  *
  * @param a Three component Floating point vector.

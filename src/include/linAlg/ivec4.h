@@ -39,6 +39,23 @@ static inline vec4int ivec4add(vec4int a, vec4int b) {
     };
 }
 
+/** 
+ *
+ * @brief Returns Component difference of two 4 component Vectors.
+ *
+ * @param a Four component int vector.
+ * @param b Four component int vector.
+ *
+ * @return Four Component Difference.
+ * */
+static inline vec4int ivec4sub(vec4int a, vec4int b) {
+    return (vec4int){
+    a.val[0] - b.val[0],
+    a.val[1] - b.val[1],
+    a.val[2] - b.val[2],
+    a.val[3] - b.val[3]
+    };
+}
 
 
 /** 

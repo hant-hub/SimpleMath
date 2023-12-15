@@ -72,4 +72,18 @@ static inline const vec2int ivec2add(vec2int a, vec2int b) {
 }
 
 
+/**
+ *
+ * @brief Subtracts vectors component wise.
+ *
+ * @param a Two component  int vector.
+ * @param b Two component  int vector.
+ *
+ * @return Returns a vector containing the component wise difference.
+ * */
+static inline const vec2int ivec2sub(vec2int a, vec2int b) {
+    return (vec2int){a.val[0]-b.val[0], a.val[1]-b.val[1]};
+}
+
+
 #endif

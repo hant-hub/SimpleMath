@@ -74,5 +74,22 @@ static inline const vec2float vec2add(vec2float a, vec2float b) {
     return (vec2float){a.val[0]+b.val[0], a.val[1]+b.val[1]};
 }
 
+/**
+ *
+ * @brief Subtracts vectors component wise.
+ *
+ * @param a Two component Floating point vector.
+ * @param b Two component Floating point vector.
+ *
+ * @return Returns a vector containing the component wise difference.
+ * */
+static inline const vec2float vec2sub(vec2float a, vec2float b) {
+    return (vec2float){a.val[0]-b.val[0], a.val[1]-b.val[1]};
+}
+
+
+
+
+
 
 #endif

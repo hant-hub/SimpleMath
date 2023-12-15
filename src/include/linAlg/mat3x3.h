@@ -12,6 +12,12 @@ const static mat3x3_float mat3x3_float_identity = {{
     {0, 0, 1}
 }};
 
+const static mat3x3_float mat3x3_float_null = {{
+    {0, 0, 0},
+    {0, 0, 0},
+    {0, 0, 0}
+}};
+
 
 
 

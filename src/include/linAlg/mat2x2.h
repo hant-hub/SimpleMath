@@ -13,6 +13,11 @@ const static mat2x2_float mat2x2_float_identity = {{
     {0, 1}
 }};
 
+const static mat2x2_float mat2x2_float_null = {{
+    {0, 0},
+    {0, 0}
+}};
+
 
 
 

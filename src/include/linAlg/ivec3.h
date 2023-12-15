@@ -82,6 +82,21 @@ static inline const vec3int ivec3add(vec3int a, vec3int b) {
 
 /**
  *
+ * @brief Subtracts vectors component wise.
+ *
+ * @param{vec3int} a Three component int vector.
+ * @param{vec3int} b Three component int vector.
+ *
+ * @return Returns a vector containing the component wise subtraction.
+ * */
+static inline const vec3int ivec3sub(vec3int a, vec3int b) {
+    return (vec3int){a.val[0]-b.val[0],
+                       a.val[1]-b.val[1],
+                       a.val[2]-b.val[2]};
+}
+
+/**
+ *
  * @brief Right Handed Cross Product
  *
  * @param{vec3int} a Three component int vector.

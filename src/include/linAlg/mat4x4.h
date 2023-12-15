@@ -16,6 +16,13 @@ const static mat4x4_float mat4x4_float_identity = {{
     {0, 0, 0, 1}
 }};
 
+const static mat4x4_float mat4x4_float_null = {{ 
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}
+}};
+
 
 
 
