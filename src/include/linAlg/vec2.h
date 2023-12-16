@@ -1,6 +1,7 @@
 #ifndef MATH_VEC2_H
 #define MATH_VEC2_H
 #include "types.h"
+#include "../misc/sqrt.h"
 
 def_vector(float, 2);
 
@@ -88,7 +89,11 @@ static inline const vec2float vec2sub(vec2float a, vec2float b) {
 }
 
 
-
+static inline const vec2float vec2norm(vec2float v) {
+    float len = v.val[0]*v.val[0] + v.val[1]*v.val[1];
+    len = sqrt(len);
+    return vec2scale(v, 1/len);
+}
 
 
 

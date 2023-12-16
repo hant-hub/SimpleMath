@@ -1,6 +1,7 @@
 #ifndef MATH_VEC4_H
 #define MATH_VEC4_H
 #include "types.h"
+#include "../misc/sqrt.h"
 
 
 def_vector(float, 4);
@@ -107,6 +108,15 @@ static inline vec4float vec4mult(vec4float a, vec4float b) {
  * */
 static inline const vec4float vec4scale(vec4float a, float s) {
     return (vec4float){a.val[0]*s, a.val[1]*s, a.val[2]*s, a.val[3] * s};
+}
+
+static inline const vec4float vec4norm(vec4float v) {
+    float len = v.val[0]*v.val[0] +
+                v.val[1]*v.val[1] +
+                v.val[2]*v.val[2] +
+                v.val[3]*v.val[3];
+    len = sqrt(len);
+    return vec4scale(v, 1/len);
 }
 
 #endif

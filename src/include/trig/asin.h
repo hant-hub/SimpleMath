@@ -18,7 +18,7 @@
  * @return Returns an angle in radians 
  *
  * */
-static inline radians asin_r(float x) {
+static inline const radians asin_r(float x) {
     cfloat check = ipowerTable[0];    
     float out = ipowerref[0];
 
@@ -44,7 +44,7 @@ static inline radians asin_r(float x) {
     return (radians){out};
 }
 
-static inline degrees asin_d(float theta) {
+static inline const degrees asin_d(float theta) {
     return RadianstoDegrees(asin_r(theta));
 }
 

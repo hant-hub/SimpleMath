@@ -24,7 +24,7 @@
  * @return Returns a floating point value
  *
  * */
-static inline float cos_r(radians theta) {
+static inline const float cos_r(radians theta) {
     float x = normalize_r(theta).val;
     const float sqpi = pi*pi;
     float sign = 1;
@@ -57,7 +57,7 @@ static inline float cos_r(radians theta) {
  * @return Returns a floating point value
  *
  * */
-static inline float cos_d(degrees theta) {
+static inline const float cos_d(degrees theta) {
     return cos_r(DegreestoRadians(theta));
 }
 

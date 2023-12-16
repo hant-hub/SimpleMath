@@ -12,14 +12,6 @@ const static mat3x3_float mat3x3_float_identity = {{
     {0, 0, 1}
 }};
 
-const static mat3x3_float mat3x3_float_null = {{
-    {0, 0, 0},
-    {0, 0, 0},
-    {0, 0, 0}
-}};
-
-
-
 
 /** 
  *
@@ -29,7 +21,7 @@ const static mat3x3_float mat3x3_float_null = {{
  *
  * @return Boolean representing whether the two matricies are equivalent.
  * */
-static inline int mat3x3_float_eq(mat3x3_float* a, mat3x3_float* b) {
+static inline const int mat3x3_float_eq(mat3x3_float* a, mat3x3_float* b) {
     return (a->val[0][0] == b->val[0][0]) &&
            (a->val[1][0] == b->val[1][0]) &&
            (a->val[2][0] == b->val[2][0]) &&
@@ -49,7 +41,7 @@ static inline int mat3x3_float_eq(mat3x3_float* a, mat3x3_float* b) {
  *
  * @return 3x3 matrix with final matrix
  * */
-static inline mat3x3_float mat3x3add(mat3x3_float* a, mat3x3_float* b) {
+static inline const mat3x3_float mat3x3add(mat3x3_float* a, mat3x3_float* b) {
     return (mat3x3_float){{ 
         {a->val[0][0] + b->val[0][0], a->val[0][1] + b->val[0][1], a->val[0][2] + b->val[0][2]},
         {a->val[1][0] + b->val[1][0], a->val[1][1] + b->val[1][1], a->val[1][2] + b->val[1][2]},
@@ -64,7 +56,7 @@ static inline mat3x3_float mat3x3add(mat3x3_float* a, mat3x3_float* b) {
  * @param a A 3x3 matrix with floating point entries
  * @return Returns a float with the determinant
  * */
-static inline float mat3x3det(mat3x3_float* m) {
+static inline const float mat3x3det(mat3x3_float* m) {
     return (m->val[0][0] * m->val[1][1] * m->val[2][2] +
             m->val[0][1] * m->val[1][2] * m->val[2][0] +
             m->val[0][2] * m->val[1][0] * m->val[2][1]) -
@@ -79,7 +71,7 @@ static inline float mat3x3det(mat3x3_float* m) {
  * @param v Vector to be Multiplied
  * @return Vector which has been transformed.
  * */
-static inline vec3float mat3x3app(mat3x3_float* m, vec3float* v) {
+static inline const vec3float mat3x3app(mat3x3_float* m, vec3float* v) {
     return (vec3float){{
         v->val[0] * m->val[0][0] + v->val[1] * m->val[0][1] + v->val[2] * m->val[0][2],
         v->val[0] * m->val[1][0] + v->val[1] * m->val[1][1] + v->val[2] * m->val[1][2],
@@ -97,7 +89,7 @@ static inline vec3float mat3x3app(mat3x3_float* m, vec3float* v) {
  * @return Returns the composition of A and B
  *
  * */
-static inline mat3x3_float mat3x3comp(mat3x3_float* a, mat3x3_float* b) {
+static inline const mat3x3_float mat3x3comp(mat3x3_float* a, mat3x3_float* b) {
     vec3float col1 = (vec3float){b->val[0][0], b->val[1][0], b->val[2][0]};    
     vec3float col2 = (vec3float){b->val[0][1], b->val[1][1], b->val[2][1]};    
     vec3float col3 = (vec3float){b->val[0][2], b->val[1][2], b->val[2][2]};    
@@ -124,7 +116,7 @@ static inline mat3x3_float mat3x3comp(mat3x3_float* a, mat3x3_float* b) {
  * @param row Index of row to be scaled
  *
  * */
-static inline void mat3x3RowMult(mat3x3_float* m, float s, int row) {
+static inline const void mat3x3RowMult(mat3x3_float* m, float s, int row) {
     m->val[row][0] *= s;  
     m->val[row][1] *= s;
     m->val[row][2] *= s;
@@ -137,7 +129,7 @@ static inline void mat3x3RowMult(mat3x3_float* m, float s, int row) {
  * @param row2 Second Index of matrix
  *
  * */
-static inline void mat3x3RowSwap(mat3x3_float* m, int row1, int row2) {
+static inline const void mat3x3RowSwap(mat3x3_float* m, int row1, int row2) {
     float temp[3] = {m->val[row1][0], m->val[row1][1], m->val[row1][2]};
 
     m->val[row1][0] = m->val[row2][0];
@@ -156,7 +148,7 @@ static inline void mat3x3RowSwap(mat3x3_float* m, int row1, int row2) {
  * @param dest Row to be modified
  * @param s Scalar which is multiplied with src row before addition
  * */
-static inline void mat3x3RowAdd(mat3x3_float* m, int src, int dest, float s) {
+static inline const void mat3x3RowAdd(mat3x3_float* m, int src, int dest, float s) {
     m->val[dest][0] += m->val[src][0] * s;
     m->val[dest][1] += m->val[src][1] * s;
     m->val[dest][2] += m->val[src][2] * s;

@@ -24,7 +24,7 @@
  * @return Returns a floating point value
  *
  * */
-static inline float sin_r(radians theta) {
+static inline const float sin_r(radians theta) {
     theta.val -= pi/2;
     return cos_r(theta);
 }
@@ -41,7 +41,7 @@ static inline float sin_r(radians theta) {
  * @return Returns a floating point value
  *
  * */
-static inline float sin_d(degrees theta) {
+static inline const float sin_d(degrees theta) {
     return sin_r(DegreestoRadians(theta));
 }
 

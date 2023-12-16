@@ -14,7 +14,7 @@ def_vector(int, 4);
  * 
  * @return Boolean value indicating equality.
  * */
-static inline int vec4int_eq(vec4int a, vec4int b) {
+static inline const int vec4int_eq(vec4int a, vec4int b) {
     return (a.val[0] == b.val[0] &&
            a.val[1] == b.val[1] &&
            a.val[2] == b.val[2] &&
@@ -30,7 +30,7 @@ static inline int vec4int_eq(vec4int a, vec4int b) {
  *
  * @return Four Component Sum.
  * */
-static inline vec4int ivec4add(vec4int a, vec4int b) {
+static inline const vec4int ivec4add(vec4int a, vec4int b) {
     return (vec4int){
     a.val[0] + b.val[0],
     a.val[1] + b.val[1],
@@ -48,7 +48,7 @@ static inline vec4int ivec4add(vec4int a, vec4int b) {
  *
  * @return Four Component Difference.
  * */
-static inline vec4int ivec4sub(vec4int a, vec4int b) {
+static inline const vec4int ivec4sub(vec4int a, vec4int b) {
     return (vec4int){
     a.val[0] - b.val[0],
     a.val[1] - b.val[1],
@@ -68,7 +68,7 @@ static inline vec4int ivec4sub(vec4int a, vec4int b) {
  * @return Four Component Dot product
  *
  * */
-static inline int ivec4dot(vec4int a, vec4int b) {
+static inline const int ivec4dot(vec4int a, vec4int b) {
     return ((a.val[0] * b.val[0]) +
             (a.val[1] * b.val[1]) +
             (a.val[2] * b.val[2]) +
@@ -88,7 +88,7 @@ static inline int ivec4dot(vec4int a, vec4int b) {
  * @return Four Component Vector multiply
  *
  * */
-static inline vec4int ivec4mult(vec4int a, vec4int b) {
+static inline const vec4int ivec4mult(vec4int a, vec4int b) {
     return (vec4int){
         a.val[0] * b.val[0],
         a.val[1] * b.val[1],

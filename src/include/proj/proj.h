@@ -11,7 +11,7 @@
 
 //utility functions
 
-static inline ErrorCode mat4_translate(mat4x4_float* m, vec3float t) {
+static inline const ErrorCode mat4_translate(mat4x4_float* m, vec3float t) {
     m->val[0][3] += t.val[0];
     m->val[1][3] += t.val[1];
     m->val[2][3] += t.val[2];
@@ -19,7 +19,7 @@ static inline ErrorCode mat4_translate(mat4x4_float* m, vec3float t) {
     return NoError;
 }
 
-static inline ErrorCode mat4_scale(mat4x4_float* m, float s) {
+static inline const ErrorCode mat4_scale(mat4x4_float* m, float s) {
     m->val[0][0] *= s;
     m->val[1][1] *= s;
     m->val[2][2] *= s;
@@ -27,7 +27,7 @@ static inline ErrorCode mat4_scale(mat4x4_float* m, float s) {
     return NoError;
 }
 
-static inline ErrorCode mat4_rotate(mat4x4_float* m, EulerAngles a) {
+static inline const ErrorCode mat4_rotate(mat4x4_float* m, EulerAngles a) {
 //Plan to implement rotors for efficient rotations in the future
     float sinx = sin_r(a.x);
     float cosx = cos_r(a.x);
@@ -71,7 +71,7 @@ static inline ErrorCode mat4_rotate(mat4x4_float* m, EulerAngles a) {
 //rendering constructors
 
 
-static inline ErrorCode mat4_PerspectiveMatrix(mat4x4_float* m, float near, float far, radians fov, float aspect){ 
+static inline const ErrorCode mat4_PerspectiveMatrix(mat4x4_float* m, float near, float far, radians fov, float aspect){ 
     float tanfov = tan_r((radians){fov.val/2.0f});
     float nearfardiff = far-near;
 
@@ -84,7 +84,7 @@ static inline ErrorCode mat4_PerspectiveMatrix(mat4x4_float* m, float near, floa
     return NoError;
 }
 
-static inline ErrorCode mat4_OrthoMatrix(mat4x4_float* m, float left, float right, float top, float bottom, float near, float far) {
+static inline const ErrorCode mat4_OrthoMatrix(mat4x4_float* m, float left, float right, float top, float bottom, float near, float far) {
 
     float horizontaldiff = right - left;
     float verticaldiff   = top - bottom;
@@ -103,12 +103,23 @@ static inline ErrorCode mat4_OrthoMatrix(mat4x4_float* m, float left, float righ
     return NoError;
 }
 
-static inline ErrorCode mat4_ViewMatrix(mat4x4_float* m, vec3float pos, vec3float lookat, vec3float up) {
+static inline const ErrorCode mat4_ViewMatrix(mat4x4_float* m, vec3float pos, vec3float lookat, vec3float up) {
+    mat4x4_float t = {0};
 
-    mat4_translate(m, vec3scale(pos, -1));    
-    vec3float f = vec3sub(pos, lookat);
+    mat4_translate(&t, vec3scale(pos, -1));    
 
+    vec3float f = vec3norm(vec3sub(pos, lookat));
+    vec3float l = vec3norm(vec3cross(up, f));
+    vec3float u = vec3cross(f,l);
+    
+    mat4x4_float r = {{ 
+        {l.val[0], l.val[1], l.val[2], 0},
+        {u.val[0], u.val[1], u.val[2], 0},
+        {f.val[0], f.val[2], f.val[2], 0},
+        {0,        0,        0,        1}
+    }};
 
+    *m = mat4x4comp(&r, &t);
 
     return NoError;
 }

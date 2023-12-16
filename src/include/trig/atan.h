@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-static inline radians atan_r(float x) {
+static inline const radians atan_r(float x) {
     cfloat check = ipowerTable[0];    
     float out = ipowerref[0];
 
@@ -30,11 +30,11 @@ static inline radians atan_r(float x) {
     return (radians){out};
 }
 
-static inline degrees atan_d(float x) {
+static inline const degrees atan_d(float x) {
     return RadianstoDegrees(atan_r(x));
 }
 
-static inline radians atan2_r(float y, float x) {
+static inline const radians atan2_r(float y, float x) {
 
     if (x == 0 && y > 0) {
         return (radians){pi/2};
@@ -83,7 +83,7 @@ static inline radians atan2_r(float y, float x) {
     return (radians){out};
 }
 
-static inline degrees atan2_d(float y, float x) {
+static inline const degrees atan2_d(float y, float x) {
     return RadianstoDegrees(atan2_r(y,x));
 }
 

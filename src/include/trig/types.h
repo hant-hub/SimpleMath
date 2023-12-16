@@ -15,7 +15,7 @@ const static float pi = 3.141592;
 static unsigned int iterationCount = 10;
 
 
-static inline radians normalize_r(radians theta) {
+static inline const radians normalize_r(radians theta) {
     float x = theta.val;
 
     float sub = x/(2*pi);
@@ -26,12 +26,12 @@ static inline radians normalize_r(radians theta) {
     return (radians){frac*2*pi};
 }
 
-static inline degrees normalize_d(degrees theta) {
+static inline const degrees normalize_d(degrees theta) {
     return (degrees){0};
 }
 
 
-static inline radians DegreestoRadians(degrees theta) {
+static inline const radians DegreestoRadians(degrees theta) {
     static const float ratio = 1.0f/360.0f;
     float x = theta.val;
     x *= ratio;
@@ -39,7 +39,7 @@ static inline radians DegreestoRadians(degrees theta) {
     return (radians){x};
 }
 
-static inline degrees RadianstoDegrees(radians theta) {
+static inline const degrees RadianstoDegrees(radians theta) {
     static const float ratio = 1.0f/(2*pi);
     float x = theta.val;
     x *= ratio;

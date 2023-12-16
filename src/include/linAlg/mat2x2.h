@@ -13,10 +13,7 @@ const static mat2x2_float mat2x2_float_identity = {{
     {0, 1}
 }};
 
-const static mat2x2_float mat2x2_float_null = {{
-    {0, 0},
-    {0, 0}
-}};
+
 
 
 
@@ -29,7 +26,7 @@ const static mat2x2_float mat2x2_float_null = {{
  *
  * @return Boolean representing whether the two matricies are equivalent.
  * */
-static inline int mat2x2_float_eq(mat2x2_float* a, mat2x2_float* b) {
+static inline const int mat2x2_float_eq(mat2x2_float* a, mat2x2_float* b) {
     return (a->val[0][0] == b->val[0][0]) &&
            (a->val[1][0] == b->val[1][0]) &&
            (a->val[0][1] == b->val[0][1]) &&
@@ -44,7 +41,7 @@ static inline int mat2x2_float_eq(mat2x2_float* a, mat2x2_float* b) {
  *
  * @return 2x2 matrix with final matrix
  * */
-static inline mat2x2_float mat2x2add(mat2x2_float* a, mat2x2_float* b) {
+static inline const mat2x2_float mat2x2add(mat2x2_float* a, mat2x2_float* b) {
     return (mat2x2_float){{ 
         {a->val[0][0] + b->val[0][0], a->val[0][1] + b->val[0][1]},
         {a->val[1][0] + b->val[1][0], a->val[1][1] + b->val[1][1]}
@@ -58,7 +55,7 @@ static inline mat2x2_float mat2x2add(mat2x2_float* a, mat2x2_float* b) {
  * @param a A 2x2 matrix with floating point entries
  * @return Returns a float with the determinant
  * */
-static inline float mat2x2det(mat2x2_float* m) {
+static inline const float mat2x2det(mat2x2_float* m) {
     return (m->val[0][0] * m->val[1][1]) -
         (m->val[1][0] * m->val[0][1]);
 }
@@ -72,7 +69,7 @@ static inline float mat2x2det(mat2x2_float* m) {
  * @return Returns the composition of A and B
  *
  * */
-static inline mat2x2_float mat2x2comp(mat2x2_float* a, mat2x2_float* b) {
+static inline const mat2x2_float mat2x2comp(mat2x2_float* a, mat2x2_float* b) {
     return (mat2x2_float){{
         {a->val[0][0] * b->val[0][0] + a->val[0][1] * b->val[1][0],
         a->val[0][0] * b->val[0][1] + a->val[0][1] * b->val[1][1]},
@@ -91,7 +88,7 @@ static inline mat2x2_float mat2x2comp(mat2x2_float* a, mat2x2_float* b) {
  *
  * @return A 2 component Vector with A applied.
  * */
-static inline vec2float mat2x2app(mat2x2_float* m, vec2float* v) {
+static inline const vec2float mat2x2app(mat2x2_float* m, vec2float* v) {
     return (vec2float){
     {
     (v->val[0] * m->val[0][0]) + (v->val[1] * m->val[0][1]),
@@ -109,7 +106,7 @@ static inline vec2float mat2x2app(mat2x2_float* m, vec2float* v) {
  * @param row Index of row to be scaled
  *
  * */
-static inline void mat2x2RowMult(mat2x2_float* m, float s, int row) {
+static inline const void mat2x2RowMult(mat2x2_float* m, float s, int row) {
     m->val[row][0] = m->val[row][0]*s;  
     m->val[row][1] = m->val[row][1]*s;
 }
@@ -121,7 +118,7 @@ static inline void mat2x2RowMult(mat2x2_float* m, float s, int row) {
  * @param row2 Second Index of matrix
  *
  * */
-static inline void mat2x2RowSwap(mat2x2_float* m, int row1, int row2) {
+static inline const void mat2x2RowSwap(mat2x2_float* m, int row1, int row2) {
     float temp[2] = {m->val[row1][0], m->val[row1][1]};
 
     m->val[row1][0] = m->val[row2][0];
@@ -138,16 +135,10 @@ static inline void mat2x2RowSwap(mat2x2_float* m, int row1, int row2) {
  * @param dest Row to be modified
  * @param s Scalar which is multiplied with src row before addition
  * */
-static inline void mat2x2RowAdd(mat2x2_float* m, int src, int dest, float s) {
+static inline const void mat2x2RowAdd(mat2x2_float* m, int src, int dest, float s) {
     m->val[dest][0] += m->val[src][0] * s;
     m->val[dest][1] += m->val[src][1] * s;
 }
-
-
-
-
-
-
 
 
 

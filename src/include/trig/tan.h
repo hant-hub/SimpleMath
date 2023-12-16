@@ -11,7 +11,7 @@
  * @return Returns a floating point value
  *
  * */
-static inline float tan_r(radians theta) {
+static inline const float tan_r(radians theta) {
     return sin_r(theta)/cos_r(theta);
 }
 
@@ -23,7 +23,7 @@ static inline float tan_r(radians theta) {
  * @return Returns a floating point value
  *
  * */
-static inline float tan_d(degrees theta) {
+static inline const float tan_d(degrees theta) {
     radians angle = DegreestoRadians(theta);
     return sin_r(angle)/cos_r(angle);
 }

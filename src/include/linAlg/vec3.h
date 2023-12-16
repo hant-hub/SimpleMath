@@ -1,6 +1,7 @@
 #ifndef MATH_VEC3_H
 #define MATH_VEC3_H
 #include "types.h"
+#include "../misc/sqrt.h"
 
 def_vector(float, 3);
 
@@ -115,5 +116,12 @@ static inline const vec3float vec3cross(vec3float a, vec3float b) {
     return (vec3float){first, -second, third};
 }
 
+static inline const vec3float vec3norm(vec3float v) {
+    float len = v.val[0]*v.val[0] +
+                v.val[1]*v.val[1] +
+                v.val[2]*v.val[2];
+    len = sqrt(len);
+    return vec3scale(v, 1/len);
+}
 
 #endif

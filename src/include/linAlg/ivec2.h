@@ -14,7 +14,7 @@ def_vector(int, 2);
  *
  * @return Returns a boolean which evaluates whether two vectors are equivalent.
  * */
-static inline int vec2int_eq(vec2int a, vec2int b) {
+static inline const int vec2int_eq(vec2int a, vec2int b) {
     return ((a.val[0] == b.val[0]) && (a.val[1] == b.val[1]));
 }
 

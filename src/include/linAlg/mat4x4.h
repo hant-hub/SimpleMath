@@ -16,15 +16,6 @@ const static mat4x4_float mat4x4_float_identity = {{
     {0, 0, 0, 1}
 }};
 
-const static mat4x4_float mat4x4_float_null = {{ 
-    {0, 0, 0, 0},
-    {0, 0, 0, 0},
-    {0, 0, 0, 0},
-    {0, 0, 0, 0}
-}};
-
-
-
 
 /** 
  *
@@ -34,7 +25,7 @@ const static mat4x4_float mat4x4_float_null = {{
  *
  * @return Boolean representing whether the two matricies are equivalent.
  * */
-static inline int mat4x4_float_eq(mat4x4_float* a, mat4x4_float* b) {
+static inline const int mat4x4_float_eq(mat4x4_float* a, mat4x4_float* b) {
     return (a->val[0][0] == b->val[0][0]) &&
            (a->val[1][0] == b->val[1][0]) &&
            (a->val[2][0] == b->val[2][0]) &&
@@ -61,7 +52,7 @@ static inline int mat4x4_float_eq(mat4x4_float* a, mat4x4_float* b) {
  *
  * @return 4x4 matrix with final matrix
  * */
-static inline mat4x4_float mat4x4add(mat4x4_float* a, mat4x4_float* b) {
+static inline const mat4x4_float mat4x4add(mat4x4_float* a, mat4x4_float* b) {
     return (mat4x4_float){{ 
         {a->val[0][0] + b->val[0][0], a->val[0][1] + b->val[0][1], a->val[0][2] + b->val[0][2], a->val[0][3] + b->val[0][3]},
         {a->val[1][0] + b->val[1][0], a->val[1][1] + b->val[1][1], a->val[1][2] + b->val[1][2], a->val[1][3] + b->val[1][3]},
@@ -77,7 +68,7 @@ static inline mat4x4_float mat4x4add(mat4x4_float* a, mat4x4_float* b) {
  * @param a A 4x4 matrix with floating point entries
  * @return Returns a float with the determinant
  * */
-static inline float mat4x4det(mat4x4_float* m) {
+static inline const float mat4x4det(mat4x4_float* m) {
     mat3x3_float a = {{
         {m->val[1][1], m->val[1][2], m->val[1][3]},
         {m->val[2][1], m->val[2][2], m->val[2][3]},
@@ -109,7 +100,7 @@ static inline float mat4x4det(mat4x4_float* m) {
  * @param v Vector to be Multiplied
  * @return Vector which has been transformed.
  * */
-static inline vec4float mat4x4app(mat4x4_float* m, vec4float* v) {
+static inline const vec4float mat4x4app(mat4x4_float* m, vec4float* v) {
     return (vec4float){{
         v->val[0] * m->val[0][0] + v->val[1] * m->val[0][1] + v->val[2] * m->val[0][2] + v->val[3] * m->val[0][3],
         v->val[0] * m->val[1][0] + v->val[1] * m->val[1][1] + v->val[2] * m->val[1][2] + v->val[3] * m->val[1][3],
@@ -128,7 +119,7 @@ static inline vec4float mat4x4app(mat4x4_float* m, vec4float* v) {
  * @return Returns the composition of A and B
  *
  * */
-static inline mat4x4_float mat4x4comp(mat4x4_float* a, mat4x4_float* b) {
+static inline const mat4x4_float mat4x4comp(mat4x4_float* a, mat4x4_float* b) {
     vec4float col1 = (vec4float){b->val[0][0], b->val[1][0], b->val[2][0], b->val[3][0]};    
     vec4float col2 = (vec4float){b->val[0][1], b->val[1][1], b->val[2][1], b->val[3][1]};    
     vec4float col3 = (vec4float){b->val[0][2], b->val[1][2], b->val[2][2], b->val[3][2]};    
@@ -158,7 +149,7 @@ static inline mat4x4_float mat4x4comp(mat4x4_float* a, mat4x4_float* b) {
  * @param row Index of row to be scaled
  *
  * */
-static inline void mat4x4RowMult(mat4x4_float* m, float s, int row) {
+static inline const void mat4x4RowMult(mat4x4_float* m, float s, int row) {
     m->val[row][0] *= s;  
     m->val[row][1] *= s;
     m->val[row][2] *= s;
@@ -172,7 +163,7 @@ static inline void mat4x4RowMult(mat4x4_float* m, float s, int row) {
  * @param row2 Second Index of matrix
  *
  * */
-static inline void mat4x4RowSwap(mat4x4_float* m, int row1, int row2) {
+static inline const void mat4x4RowSwap(mat4x4_float* m, int row1, int row2) {
     float temp[4] = {m->val[row1][0], m->val[row1][1], m->val[row1][2], m->val[row1][3]};
 
     m->val[row1][0] = m->val[row2][0];
@@ -193,7 +184,7 @@ static inline void mat4x4RowSwap(mat4x4_float* m, int row1, int row2) {
  * @param dest Row to be modified
  * @param s Scalar which is multiplied with src row before addition
  * */
-static inline void mat4x4RowAdd(mat4x4_float* m, int src, int dest, float s) {
+static inline const void mat4x4RowAdd(mat4x4_float* m, int src, int dest, float s) {
     m->val[dest][0] += m->val[src][0] * s;
     m->val[dest][1] += m->val[src][1] * s;
     m->val[dest][2] += m->val[src][2] * s;
