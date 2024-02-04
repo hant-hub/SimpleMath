@@ -14,6 +14,10 @@ static inline double clampd(double in, double min, double max) {
     return t > max ? max : t;
 }
 
+static inline int clampi(int in, int min, int max) {
+    const int t = in < min ? min : in;
+    return t > max ? max : t;
+}
 
 
 
