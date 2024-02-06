@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['blu_0',['BLU',['../main_8c.html#add9307de87f38e77d336751e305886f6',1,'main.c']]]
+  ['bool_0',['bool',['../common_8h.html#a0ecf26b576b9a54eca656b9be7ba6a06',1,'common.h']]]
 ];

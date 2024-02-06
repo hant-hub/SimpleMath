@@ -1,0 +1,19 @@
+[
+ {
+  "directory": "/home/elijah/Desktop/Dev/Git/repos/SimpleMath",
+  "arguments": [
+   "gcc",
+   "-I./src/test/..",
+   "-I./src/test/../include",
+   "-I./src/test/../include/vec",
+   "-I./src/test/../test",
+   "-MMD",
+   "-MP",
+   "-c",
+   "src/test/main.c",
+   "-o",
+   "build/./src/test/main.c.o"
+  ],
+  "file": "src/test/main.c"
+ }
+]
