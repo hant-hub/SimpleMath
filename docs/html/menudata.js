@@ -27,8 +27,16 @@ var menudata={children:[
 {text:"Data Structures",url:"annotated.html"},
 {text:"Data Structure Index",url:"classes.html"},
 {text:"Data Fields",url:"functions.html",children:[
-{text:"All",url:"functions.html"},
-{text:"Variables",url:"functions_vars.html"}]}]},
+{text:"All",url:"functions.html",children:[
+{text:"w",url:"functions.html#index_w"},
+{text:"x",url:"functions.html#index_x"},
+{text:"y",url:"functions.html#index_y"},
+{text:"z",url:"functions.html#index_z"}]},
+{text:"Variables",url:"functions_vars.html",children:[
+{text:"w",url:"functions_vars.html#index_w"},
+{text:"x",url:"functions_vars.html#index_x"},
+{text:"y",url:"functions_vars.html#index_y"},
+{text:"z",url:"functions_vars.html#index_z"}]}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"Globals",url:"globals.html",children:[
@@ -40,7 +48,9 @@ var menudata={children:[
 {text:"s",url:"globals.html#index_s"},
 {text:"t",url:"globals.html#index_t"},
 {text:"u",url:"globals.html#index_u"}]},
-{text:"Functions",url:"globals_func.html"},
+{text:"Functions",url:"globals_func.html",children:[
+{text:"m",url:"globals_func.html#index_m"},
+{text:"s",url:"globals_func.html#index_s"}]},
 {text:"Variables",url:"globals_vars.html"},
 {text:"Typedefs",url:"globals_type.html"},
 {text:"Macros",url:"globals_defs.html"}]}]}]}

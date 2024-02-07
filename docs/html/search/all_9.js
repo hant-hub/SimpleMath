@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_49',['x',['../structsm__vec2i.html#a2338ad75999a7a104c101f199ac6f28e',1,'sm_vec2i::x()'],['../structsm__vec2l.html#a2692d1fb8c25f39a4896cc024c9bb4be',1,'sm_vec2l::x()'],['../structsm__vec2f.html#aa85fd6524a0d89251d1e7fb660107365',1,'sm_vec2f::x()'],['../structsm__vec2d.html#ace2390626d448a851b9978f733740734',1,'sm_vec2d::x()']]]
+  ['w_112',['w',['../structsm__vec4i.html#a268e4a434941e4baea0af04eb7f68fe8',1,'sm_vec4i::w()'],['../structsm__vec4l.html#a10ce0dc39af066160d994acab2dfc3d0',1,'sm_vec4l::w()'],['../structsm__vec4f.html#a9710a411bf92a0447546ac8c499fe624',1,'sm_vec4f::w()'],['../structsm__vec4d.html#afb77c1e9bd430903ef21dd196fdf544a',1,'sm_vec4d::w()']]]
 ];

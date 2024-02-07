@@ -2,7 +2,7 @@
  {
   "directory": "/home/elijah/Desktop/Dev/Git/repos/SimpleMath",
   "arguments": [
-   "gcc",
+   "clang",
    "-I./src/test/..",
    "-I./src/test/../include",
    "-I./src/test/../include/vec",

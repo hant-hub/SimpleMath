@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <math.h>
 #include <float.h>
 
 typedef float f32;
@@ -25,6 +26,7 @@ const bool false = 0;
 
 #define SM_INLINE static inline __attribute((always_inline))
 #define SM_PI 3.14159265358979323846f
+
 
 
 

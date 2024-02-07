@@ -42,6 +42,7 @@ clean:
 	rm -r $(BUILD_DIR)
 
 test: $(BUILD_DIR)/$(TARGET_EXEC)
+	compiledb -n make
 	./$<
 
 

@@ -3,6 +3,7 @@
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stddef.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
 {\ttfamily \#include $<$float.\+h$>$}\newline
 Include dependency graph for common.\+h\+:
 % FIG 0

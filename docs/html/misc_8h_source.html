@@ -74,38 +74,13 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SIMPLE_MISC_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="group__Sqrt.html#gaaaa31b98d9987959d58b974bdd3d13b7">   16</a></span>&#160;<span class="keyword">const</span> <a class="code" href="common_8h.html#a48d6cd8e4135fb2ff7e7f2dac84089ec">i32</a> <a class="code" href="group__Sqrt.html#gaaaa31b98d9987959d58b974bdd3d13b7">sqrt_precision</a> = 2; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="group__Sqrt.html#ga529737c27a060857a7ec39da4126cd88">   19</a></span>&#160;<a class="code" href="common_8h.html#ab75f83ed5e785b43d68376c169f45f68">SM_INLINE</a> <a class="code" href="common_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="group__Sqrt.html#ga529737c27a060857a7ec39da4126cd88">sm_sqrt_f32</a>(<a class="code" href="common_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> x){</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">union </span>{ <a class="code" href="common_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> f; <a class="code" href="common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> i; } val = {x};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    val.i = (1&lt;&lt;29) + (val.i &gt;&gt; 1) - (1&lt;&lt;22);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="common_8h.html#a8357269fda562bf0af18ab08fc67e194">u8_f</a> i = 0; i &lt; <a class="code" href="group__Sqrt.html#gaaaa31b98d9987959d58b974bdd3d13b7">sqrt_precision</a>; i++) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        val.f = (val.f + x/val.f) * 0.5f;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> val.f;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="group__Sqrt.html#ga698bd0e23e7f70b934c5ce933dcb3d60">   29</a></span>&#160;<a class="code" href="common_8h.html#ab75f83ed5e785b43d68376c169f45f68">SM_INLINE</a> <a class="code" href="common_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5">f64</a> <a class="code" href="group__Sqrt.html#ga698bd0e23e7f70b934c5ce933dcb3d60">sm_sqrt_f64</a>(<a class="code" href="common_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5">f64</a> x) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">union </span>{ <a class="code" href="common_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5">f64</a> f; <a class="code" href="common_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234">u64</a> i; } val = {x};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    val.i = (1&lt;&lt;29) + (val.i &gt;&gt; 1) - (1&lt;&lt;22);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="common_8h.html#a8357269fda562bf0af18ab08fc67e194">u8_f</a> i = 0; i &lt; <a class="code" href="group__Sqrt.html#gaaaa31b98d9987959d58b974bdd3d13b7">sqrt_precision</a>; i++) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        val.f = (val.f + x/val.f) * 0.5f;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> val.f;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="agroup__Sqrt_html_gaaaa31b98d9987959d58b974bdd3d13b7"><div class="ttname"><a href="group__Sqrt.html#gaaaa31b98d9987959d58b974bdd3d13b7">sqrt_precision</a></div><div class="ttdeci">const i32 sqrt_precision</div><div class="ttdef"><b>Definition:</b> misc.h:16</div></div>
-<div class="ttc" id="acommon_8h_html_a94dab5770726ccbef8c7d026cfbdf8e5"><div class="ttname"><a href="common_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5">f64</a></div><div class="ttdeci">double f64</div><div class="ttdef"><b>Definition:</b> common.h:9</div></div>
-<div class="ttc" id="agroup__Sqrt_html_ga698bd0e23e7f70b934c5ce933dcb3d60"><div class="ttname"><a href="group__Sqrt.html#ga698bd0e23e7f70b934c5ce933dcb3d60">sm_sqrt_f64</a></div><div class="ttdeci">SM_INLINE f64 sm_sqrt_f64(f64 x)</div><div class="ttdef"><b>Definition:</b> misc.h:29</div></div>
-<div class="ttc" id="acommon_8h_html_ab75f83ed5e785b43d68376c169f45f68"><div class="ttname"><a href="common_8h.html#ab75f83ed5e785b43d68376c169f45f68">SM_INLINE</a></div><div class="ttdeci">#define SM_INLINE</div><div class="ttdef"><b>Definition:</b> common.h:26</div></div>
-<div class="ttc" id="acommon_8h_html_a3f7e2bcbb0b4c338f3c4f6c937cd4234"><div class="ttname"><a href="common_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234">u64</a></div><div class="ttdeci">uint64_t u64</div><div class="ttdef"><b>Definition:</b> common.h:13</div></div>
-<div class="ttc" id="acommon_8h_html_a5f6906312a689f27d70e9d086649d3fd"><div class="ttname"><a href="common_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a></div><div class="ttdeci">float f32</div><div class="ttdef"><b>Definition:</b> common.h:8</div></div>
-<div class="ttc" id="agroup__Sqrt_html_ga529737c27a060857a7ec39da4126cd88"><div class="ttname"><a href="group__Sqrt.html#ga529737c27a060857a7ec39da4126cd88">sm_sqrt_f32</a></div><div class="ttdeci">SM_INLINE f32 sm_sqrt_f32(f32 x)</div><div class="ttdef"><b>Definition:</b> misc.h:19</div></div>
 <div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
-<div class="ttc" id="acommon_8h_html_afaa62991928fb9fb18ff0db62a040aba"><div class="ttname"><a href="common_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div><div class="ttdeci">uint32_t u32</div><div class="ttdef"><b>Definition:</b> common.h:12</div></div>
-<div class="ttc" id="acommon_8h_html_a8357269fda562bf0af18ab08fc67e194"><div class="ttname"><a href="common_8h.html#a8357269fda562bf0af18ab08fc67e194">u8_f</a></div><div class="ttdeci">uint_fast8_t u8_f</div><div class="ttdef"><b>Definition:</b> common.h:15</div></div>
-<div class="ttc" id="acommon_8h_html_a48d6cd8e4135fb2ff7e7f2dac84089ec"><div class="ttname"><a href="common_8h.html#a48d6cd8e4135fb2ff7e7f2dac84089ec">i32</a></div><div class="ttdeci">int32_t i32</div><div class="ttdef"><b>Definition:</b> common.h:19</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

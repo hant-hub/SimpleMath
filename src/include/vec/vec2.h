@@ -145,8 +145,32 @@ SM_INLINE f64 sm_vec2_f64_dot(sm_vec2d a, sm_vec2d b) {
 }
 /** @} */
 
-
-
+/** 
+ * \defgroup sm_vec2_len
+ * @brief Vector Length Calc
+ * @param a vec2
+ * @retval Cartesian length of a
+ *
+ * Calculates the pythagorean length of the vector using sqrt.
+ * @{
+ * */
+/** 32 Bit Integer Vector */
+SM_INLINE i32 sm_vec2_i32_len(sm_vec2i a) {
+    return (i32)sqrt(a.x * a.x + a.y * a.y);
+}
+/** 64 Bit Integer Vector */
+SM_INLINE i64 sm_vec2_i64_len(sm_vec2l a) {
+    return (i64)sqrt(a.x * a.x + a.y * a.y);
+}
+/** 32 Bit Float Vector */
+SM_INLINE f32 sm_vec2_f32_len(sm_vec2f a) {
+    return (f32)sqrt(a.x * a.x + a.y * a.y);
+}
+/** 64 Bit Float Vector */
+SM_INLINE f64 sm_vec2_f64_len(sm_vec2d a) {
+    return (f64)sqrt(a.x * a.x + a.y * a.y);
+}
+/** @}*/
 
 
 #endif
