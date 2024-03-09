@@ -2,7 +2,6 @@
 #ifndef MATH_MAT4_H
 #define MATH_MAT4_H
 #include "types.h"
-#include "../error.h"
 #include "vec4.h"
 #include "mat3x3.h"
 
