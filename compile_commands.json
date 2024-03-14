@@ -5,6 +5,7 @@
    "clang",
    "-I./src/test/..",
    "-I./src/test/../include",
+   "-I./src/test/../include/mat",
    "-I./src/test/../include/vec",
    "-I./src/test/../test",
    "-MMD",

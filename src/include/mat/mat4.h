@@ -85,6 +85,19 @@ SM_INLINE void sm_mat4_f64_add(sm_mat4d* out, sm_mat4d* a, sm_mat4d* b) {
 }
 /** @} */
 
+
+
+
+/**
+ * \defgroup sm_mat4_sub
+ * @brief Matrix Component Subs
+ * @param out mat4
+ * @param a mat4
+ * @param b mat4
+ * @retval Component wise subtraction
+ * @{
+ */
+/** @brief 32 Bit Integer **/
 SM_INLINE void sm_mat4_i32_sub(sm_mat4i* out, sm_mat4i* a, sm_mat4i* b) {
     out->a = sm_vec4_i32_sub(a->a, b->a);
     out->b = sm_vec4_i32_sub(a->b, b->b);
@@ -92,6 +105,287 @@ SM_INLINE void sm_mat4_i32_sub(sm_mat4i* out, sm_mat4i* a, sm_mat4i* b) {
     out->d = sm_vec4_i32_sub(a->d, b->d);
 }
 
+/** @brief 64 Bit Integer **/
+SM_INLINE void sm_mat4_i64_sub(sm_mat4l* out, sm_mat4l* a, sm_mat4l* b) {
+    out->a = sm_vec4_i64_sub(a->a, b->a);
+    out->b = sm_vec4_i64_sub(a->b, b->b);
+    out->c = sm_vec4_i64_sub(a->c, b->c);
+    out->d = sm_vec4_i64_sub(a->d, b->d);
+}
+
+/** @brief 32 Bit Float **/
+SM_INLINE void sm_mat4_f32_sub(sm_mat4f* out, sm_mat4f* a, sm_mat4f* b) {
+    out->a = sm_vec4_f32_sub(a->a, b->a);
+    out->b = sm_vec4_f32_sub(a->b, b->b);
+    out->c = sm_vec4_f32_sub(a->c, b->c);
+    out->d = sm_vec4_f32_sub(a->d, b->d);
+}
+
+/** @brief 64 Bit Float **/
+SM_INLINE void sm_mat4_f64_sub(sm_mat4d* out, sm_mat4d* a, sm_mat4d* b) {
+    out->a = sm_vec4_f64_sub(a->a, b->a);
+    out->b = sm_vec4_f64_sub(a->b, b->b);
+    out->c = sm_vec4_f64_sub(a->c, b->c);
+    out->d = sm_vec4_f64_sub(a->d, b->d);
+}
+/** @} **/
+
+
+/**
+ * \defgroup sm_mat4_transpose
+ * @brief Matrix Component transposes
+ * @param out mat4
+ * @param a mat4
+ * @retval Transpose of the matrix
+ * @{
+ */
+/** @brief 32 bit Integer **/
+SM_INLINE void sm_mat4_i32_transpose(sm_mat4i* out, sm_mat4i* a) {
+    out->a = (sm_vec4i) {
+        a->a.x,
+        a->b.x,
+        a->c.x,
+        a->d.x
+    };
+    out->b = (sm_vec4i) {
+        a->a.y,
+        a->b.y,
+        a->c.y,
+        a->d.y
+    };
+    out->c = (sm_vec4i) {
+        a->a.z,
+        a->b.z,
+        a->c.z,
+        a->d.z
+    };
+    out->d = (sm_vec4i) {
+        a->a.w,
+        a->b.w,
+        a->c.w,
+        a->d.w
+    };
+}
+
+/** @brief 64 bit Integer **/
+SM_INLINE void sm_mat4_i64_transpose(sm_mat4l* out, sm_mat4l* a) {
+    out->a = (sm_vec4l) {
+        a->a.x,
+        a->b.x,
+        a->c.x,
+        a->d.x
+    };
+    out->b = (sm_vec4l) {
+        a->a.y,
+        a->b.y,
+        a->c.y,
+        a->d.y
+    };
+    out->c = (sm_vec4l) {
+        a->a.z,
+        a->b.z,
+        a->c.z,
+        a->d.z
+    };
+    out->d = (sm_vec4l) {
+        a->a.w,
+        a->b.w,
+        a->c.w,
+        a->d.w
+    };
+}
+
+/** @brief 32 bit float **/
+SM_INLINE void sm_mat4_f32_transpose(sm_mat4f* out, sm_mat4f* a) {
+    out->a = (sm_vec4f) {
+        a->a.x,
+        a->b.x,
+        a->c.x,
+        a->d.x
+    };
+    out->b = (sm_vec4f) {
+        a->a.y,
+        a->b.y,
+        a->c.y,
+        a->d.y
+    };
+    out->c = (sm_vec4f) {
+        a->a.z,
+        a->b.z,
+        a->c.z,
+        a->d.z
+    };
+    out->d = (sm_vec4f) {
+        a->a.w,
+        a->b.w,
+        a->c.w,
+        a->d.w
+    };
+}
+
+/** @brief 64 bit float **/
+SM_INLINE void sm_mat4_f64_transpose(sm_mat4d* out, sm_mat4d* a) {
+    out->a = (sm_vec4d) {
+        a->a.x,
+        a->b.x,
+        a->c.x,
+        a->d.x
+    };
+    out->b = (sm_vec4d) {
+        a->a.y,
+        a->b.y,
+        a->c.y,
+        a->d.y
+    };
+    out->c = (sm_vec4d) {
+        a->a.z,
+        a->b.z,
+        a->c.z,
+        a->d.z
+    };
+    out->d = (sm_vec4d) {
+        a->a.w,
+        a->b.w,
+        a->c.w,
+        a->d.w
+    };
+}
+/** @} **/
+
+
+/**
+ * \defgroup sm_mat4_comp
+ * @brief Matrix composition
+ * @param out mat4
+ * @param a mat4
+ * @param b mat4
+ * @retval Composition of the matrix
+ * @{
+ */
+
+/** @brief 32 Bit Integer **/
+SM_INLINE void sm_mat4_i32_comp(sm_mat4i* out, sm_mat4i* a, sm_mat4i* b) {
+    sm_mat4i transpose = {0};
+    sm_mat4_i32_transpose(&transpose, a);
+    out->a = (sm_vec4i) {
+        sm_vec4_i32_dot(transpose.a, b->a),
+        sm_vec4_i32_dot(transpose.b, b->a),
+        sm_vec4_i32_dot(transpose.c, b->a),
+        sm_vec4_i32_dot(transpose.d, b->a)
+    };
+    out->b = (sm_vec4i) {
+        sm_vec4_i32_dot(transpose.a, b->b),
+        sm_vec4_i32_dot(transpose.b, b->b),
+        sm_vec4_i32_dot(transpose.c, b->b),
+        sm_vec4_i32_dot(transpose.d, b->b)
+    };
+    out->c = (sm_vec4i) {
+        sm_vec4_i32_dot(transpose.a, b->c),
+        sm_vec4_i32_dot(transpose.b, b->c),
+        sm_vec4_i32_dot(transpose.c, b->c),
+        sm_vec4_i32_dot(transpose.d, b->c)
+    };
+    out->d = (sm_vec4i) {
+        sm_vec4_i32_dot(transpose.a, b->d),
+        sm_vec4_i32_dot(transpose.b, b->d),
+        sm_vec4_i32_dot(transpose.c, b->d),
+        sm_vec4_i32_dot(transpose.d, b->d)
+    };
+
+}
+
+/** @brief 64 Bit Integer **/
+SM_INLINE void sm_mat4_i64_comp(sm_mat4l* out, sm_mat4l* a, sm_mat4l* b) {
+    sm_mat4l transpose = {0};
+    sm_mat4_i64_transpose(&transpose, a);
+    out->a = (sm_vec4l) {
+        sm_vec4_i64_dot(transpose.a, b->a),
+        sm_vec4_i64_dot(transpose.b, b->a),
+        sm_vec4_i64_dot(transpose.c, b->a),
+        sm_vec4_i64_dot(transpose.d, b->a)
+    };
+    out->b = (sm_vec4l) {
+        sm_vec4_i64_dot(transpose.a, b->b),
+        sm_vec4_i64_dot(transpose.b, b->b),
+        sm_vec4_i64_dot(transpose.c, b->b),
+        sm_vec4_i64_dot(transpose.d, b->b)
+    };
+    out->c = (sm_vec4l) {
+        sm_vec4_i64_dot(transpose.a, b->c),
+        sm_vec4_i64_dot(transpose.b, b->c),
+        sm_vec4_i64_dot(transpose.c, b->c),
+        sm_vec4_i64_dot(transpose.d, b->c)
+    };
+    out->d = (sm_vec4l) {
+        sm_vec4_i64_dot(transpose.a, b->d),
+        sm_vec4_i64_dot(transpose.b, b->d),
+        sm_vec4_i64_dot(transpose.c, b->d),
+        sm_vec4_i64_dot(transpose.d, b->d)
+    };
+
+}
+
+/** @brief 32 Bit Float **/
+SM_INLINE void sm_mat4_f32_comp(sm_mat4f* out, sm_mat4f* a, sm_mat4f* b) {
+    sm_mat4f transpose = {0};
+    sm_mat4_f32_transpose(&transpose, a);
+    out->a = (sm_vec4f) {
+        sm_vec4_f32_dot(transpose.a, b->a),
+        sm_vec4_f32_dot(transpose.b, b->a),
+        sm_vec4_f32_dot(transpose.c, b->a),
+        sm_vec4_f32_dot(transpose.d, b->a)
+    };
+    out->b = (sm_vec4f) {
+        sm_vec4_f32_dot(transpose.a, b->b),
+        sm_vec4_f32_dot(transpose.b, b->b),
+        sm_vec4_f32_dot(transpose.c, b->b),
+        sm_vec4_f32_dot(transpose.d, b->b)
+    };
+    out->c = (sm_vec4f) {
+        sm_vec4_f32_dot(transpose.a, b->c),
+        sm_vec4_f32_dot(transpose.b, b->c),
+        sm_vec4_f32_dot(transpose.c, b->c),
+        sm_vec4_f32_dot(transpose.d, b->c)
+    };
+    out->d = (sm_vec4f) {
+        sm_vec4_f32_dot(transpose.a, b->d),
+        sm_vec4_f32_dot(transpose.b, b->d),
+        sm_vec4_f32_dot(transpose.c, b->d),
+        sm_vec4_f32_dot(transpose.d, b->d)
+    };
+
+}
+
+/** @brief 64 Bit Float **/
+SM_INLINE void sm_mat4_f64_comp(sm_mat4d* out, sm_mat4d* a, sm_mat4d* b) {
+    sm_mat4d transpose = {0};
+    sm_mat4_f64_transpose(&transpose, a);
+    out->a = (sm_vec4d) {
+        sm_vec4_f64_dot(transpose.a, b->a),
+        sm_vec4_f64_dot(transpose.b, b->a),
+        sm_vec4_f64_dot(transpose.c, b->a),
+        sm_vec4_f64_dot(transpose.d, b->a)
+    };
+    out->b = (sm_vec4d) {
+        sm_vec4_f64_dot(transpose.a, b->b),
+        sm_vec4_f64_dot(transpose.b, b->b),
+        sm_vec4_f64_dot(transpose.c, b->b),
+        sm_vec4_f64_dot(transpose.d, b->b)
+    };
+    out->c = (sm_vec4d) {
+        sm_vec4_f64_dot(transpose.a, b->c),
+        sm_vec4_f64_dot(transpose.b, b->c),
+        sm_vec4_f64_dot(transpose.c, b->c),
+        sm_vec4_f64_dot(transpose.d, b->c)
+    };
+    out->d = (sm_vec4d) {
+        sm_vec4_f64_dot(transpose.a, b->d),
+        sm_vec4_f64_dot(transpose.b, b->d),
+        sm_vec4_f64_dot(transpose.c, b->d),
+        sm_vec4_f64_dot(transpose.d, b->d)
+    };
+}
+/** @} **/
 
 
 #endif

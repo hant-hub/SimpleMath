@@ -28,11 +28,19 @@ var menudata={children:[
 {text:"Data Structure Index",url:"classes.html"},
 {text:"Data Fields",url:"functions.html",children:[
 {text:"All",url:"functions.html",children:[
+{text:"a",url:"functions.html#index_a"},
+{text:"b",url:"functions.html#index_b"},
+{text:"c",url:"functions.html#index_c"},
+{text:"d",url:"functions.html#index_d"},
 {text:"w",url:"functions.html#index_w"},
 {text:"x",url:"functions.html#index_x"},
 {text:"y",url:"functions.html#index_y"},
 {text:"z",url:"functions.html#index_z"}]},
 {text:"Variables",url:"functions_vars.html",children:[
+{text:"a",url:"functions_vars.html#index_a"},
+{text:"b",url:"functions_vars.html#index_b"},
+{text:"c",url:"functions_vars.html#index_c"},
+{text:"d",url:"functions_vars.html#index_d"},
 {text:"w",url:"functions_vars.html#index_w"},
 {text:"x",url:"functions_vars.html#index_x"},
 {text:"y",url:"functions_vars.html#index_y"},
