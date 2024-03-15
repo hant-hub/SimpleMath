@@ -44,6 +44,54 @@ typedef struct {
 
 
 /**
+ * \defgroup sm_mat4_identity
+ * @brief Matrix initialization
+ * @param m mat4
+ * @{
+ */
+/** @brief 32 bit Integer**/
+SM_INLINE void sm_mat4_i32_identity(sm_mat4i* m) {
+    *m = (sm_mat4i){
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    };
+}
+
+/** @brief 64 bit Integer**/
+SM_INLINE void sm_mat4_i64_identity(sm_mat4l* m) {
+    *m = (sm_mat4l){
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    };
+}
+
+/** @brief 32 bit Float**/
+SM_INLINE void sm_mat4_f32_identity(sm_mat4f* m) {
+    *m = (sm_mat4f){
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    };
+}
+
+/** @brief 64 bit Float**/
+SM_INLINE void sm_mat4_f64_identity(sm_mat4d* m) {
+    *m = (sm_mat4d){
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    };
+}
+/** @} **/
+
+
+/**
  * \defgroup sm_mat4_add
  * @brief Matrix Component Adds
  * @param out mat4
