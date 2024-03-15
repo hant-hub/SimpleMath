@@ -20,9 +20,9 @@ typedef uint_fast32_t u32_f;
 typedef int32_t i32;
 typedef int64_t i64;
 
-typedef uint8_t bool;
-const bool true = 1;
-const bool false = 0;
+//typedef uint8_t bool;
+//const bool true = 1;
+//const bool false = 0;
 
 #define SM_INLINE static inline
 #define SM_PI 3.14159265358979323846f
