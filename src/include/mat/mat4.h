@@ -2,6 +2,7 @@
 #define SIMPLE_MAT_4_H
 #include "common.h"
 #include "vec4.h"
+#include "vec3.h"
 
 
 /**
@@ -434,6 +435,67 @@ SM_INLINE void sm_mat4_f64_comp(sm_mat4d* out, sm_mat4d* a, sm_mat4d* b) {
     };
 }
 /** @} **/
+
+
+
+
+// Rendering Functions -----------------------
+
+
+/**
+ * \defgroup sm_mat4_translate
+ * @brief Matrix translation
+ * @param out mat4
+ * @param a mat4
+ * @param b mat4
+ * @retval specifies translation in 3d space
+ * @{
+ */
+/** @brief 32 Bit Integer **/
+SM_INLINE void sm_mat4_i32_translate(sm_mat4i* out, sm_vec3i delta) {
+    sm_vec3i pos = sm_vec3_i32_add((sm_vec3i){out->d.x, out->d.y, out->d.z}, delta);
+    out->d = (sm_vec4i) {
+        pos.x,
+        pos.y,
+        pos.z,
+        1
+    };
+}
+
+/** @brief 64 Bit Integer **/
+SM_INLINE void sm_mat4_i64_translate(sm_mat4l* out, sm_vec3l delta) {
+    sm_vec3l pos = sm_vec3_i64_add((sm_vec3l){out->d.x, out->d.y, out->d.z}, delta);
+    out->d = (sm_vec4l) {
+        pos.x,
+        pos.y,
+        pos.z,
+        1
+    };
+}
+
+/** @brief 32 Bit Float **/
+SM_INLINE void sm_mat4_f32_translate(sm_mat4f* out, sm_vec3f delta) {
+    sm_vec3f pos = sm_vec3_f32_add((sm_vec3f){out->d.x, out->d.y, out->d.z}, delta);
+    out->d = (sm_vec4f) {
+        pos.x,
+        pos.y,
+        pos.z,
+        1
+    };
+}
+
+/** @brief 64 Bit Float **/
+SM_INLINE void sm_mat4_f64_translate(sm_mat4d* out, sm_vec3d delta) {
+    sm_vec3d pos = sm_vec3_f64_add((sm_vec3d){out->d.x, out->d.y, out->d.z}, delta);
+    out->d = (sm_vec4d) {
+        pos.x,
+        pos.y,
+        pos.z,
+        1
+    };
+}
+/** @} **/
+
 
 
 #endif
