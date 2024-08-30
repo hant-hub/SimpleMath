@@ -498,4 +498,146 @@ SM_INLINE void sm_mat4_f64_translate(sm_mat4d* out, sm_vec3d delta) {
 
 
 
+/**
+ * \defgroup sm_mat4_scale
+ * @brief Matrix scale
+ * @param out mat4
+ * @param a mat4
+ * @param b mat4
+ * @retval specifies scaling in 3d space
+ * @{
+ */
+/* 32-bit Integer */
+SM_INLINE void sm_mat4_i32_scale(sm_mat4i* out, i32 scale) {
+    out->a = (sm_vec4i) {
+        scale,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4i) {
+        0,
+        scale,
+        0,
+        0
+    };
+    out->c = (sm_vec4i) {
+        0,
+        0,
+        scale,
+        0
+    };
+    out->d = (sm_vec4i) {
+        0,
+        0,
+        0,
+        scale,
+    };
+}
+
+/* 64-bit Integer */
+SM_INLINE void sm_mat4_i64_scale(sm_mat4l* out, i64 scale) {
+    out->a = (sm_vec4l) {
+        scale,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4l) {
+        0,
+        scale,
+        0,
+        0
+    };
+    out->c = (sm_vec4l) {
+        0,
+        0,
+        scale,
+        0
+    };
+    out->d = (sm_vec4l) {
+        0,
+        0,
+        0,
+        scale,
+    };
+}
+
+/* 32-bit Float */
+SM_INLINE void sm_mat4_f32_scale(sm_mat4f* out, f32 scale) {
+    out->a = (sm_vec4f) {
+        scale,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4f) {
+        0,
+        scale,
+        0,
+        0
+    };
+    out->c = (sm_vec4f) {
+        0,
+        0,
+        scale,
+        0
+    };
+    out->d = (sm_vec4f) {
+        0,
+        0,
+        0,
+        scale,
+    };
+}
+
+/* 64-bit Float */
+SM_INLINE void sm_mat4_f64_scale(sm_mat4d* out, f64 scale) {
+    out->a = (sm_vec4d) {
+        scale,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4d) {
+        0,
+        scale,
+        0,
+        0
+    };
+    out->c = (sm_vec4d) {
+        0,
+        0,
+        scale,
+        0
+    };
+    out->d = (sm_vec4d) {
+        0,
+        0,
+        0,
+        scale,
+    };
+}
+/** @} **/
+
+/**
+ * \defgroup sm_mat4_rotate
+ * @brief Matrix rotate
+ * @param out mat4
+ * @param a mat4
+ * @param b mat4
+ * @retval specifies rotate in 3d space
+ * @{
+ */
+
+SM_INLINE void sm_mat4_i32_rotate(sm_mat4i* out, i32 x, i32 y, i32 z) {
+
+}
+
+
+
+
+
+/** @} **/
+
 #endif
