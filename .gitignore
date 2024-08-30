@@ -1,4 +1,10 @@
 *.lib
+<<<<<<< HEAD
 build
 docs
+=======
+build/*
+docs/*
+.cache/*
+>>>>>>> 66572ea26e3841f4efd0d87ab03b468a18ede82c
 
