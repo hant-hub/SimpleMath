@@ -25,10 +25,8 @@ typedef int64_t i64;
 //const bool false = 0;
 
 #define SM_INLINE static inline
-#define SM_PI 3.14159265358979323846f
-
-
-
+#define SM_PI 3.14159265358979323846
+#define SM_2_PI 6.28318530717958647692
 
 
 

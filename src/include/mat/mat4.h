@@ -1,6 +1,7 @@
 #ifndef SIMPLE_MAT_4_H
 #define SIMPLE_MAT_4_H
 #include "common.h"
+#include "angles.h"
 #include "vec4.h"
 #include "vec3.h"
 
@@ -627,6 +628,11 @@ SM_INLINE void sm_mat4_f64_scale(sm_mat4d* out, f64 scale) {
  * @param a mat4
  * @param b mat4
  * @retval specifies rotate in 3d space
+ *
+ *
+ * Not Implemented
+ *
+ *
  * @{
  */
 
@@ -634,9 +640,194 @@ SM_INLINE void sm_mat4_i32_rotate(sm_mat4i* out, i32 x, i32 y, i32 z) {
 
 }
 
+SM_INLINE void sm_mat4_i64_rotate(sm_mat4l* out, i64 x, i64 y, i64 z) {
+
+}
+
+SM_INLINE void sm_mat4_f32_rotate(sm_mat4f* out, f32 x, f32 y, f32 z) {
+
+}
+
+SM_INLINE void sm_mat4_f64_rotate(sm_mat4d* out, f64 x, f64 y, f64 z) {
+
+}
+/** @} **/
 
 
+/**
+ * \defgroup sm_mat4_perspective
+ * @brief Perspective Projection Matrix
+ * @param out mat4
+ * @param n near clipping plane along the z+ direction
+ * @param f far clipping plane along the z+ direction
+ * @param vfov angular size along the vertical axis
+ * @param hfov angular size along the horizontal axis
+ * @retval returns a projection matrix from camera space to clip space
+ *
+ * Not Implemented
+ *
+ *
+ *
+ * @{
+ */
 
+SM_INLINE void sm_mat4_i32_perspective(sm_mat4i* out, i32 n, i32 f, Radian vfov, Radian hfov){
+}
+
+SM_INLINE void sm_mat4_i64_perspective(sm_mat4l* out, i64 n, i64 f, Radian vfov, Radian hfov){
+}
+
+SM_INLINE void sm_mat4_f32_perspective(sm_mat4f* out, f32 n, f32 f, Radian vfov, Radian hfov){
+}
+
+SM_INLINE void sm_mat4_f64_perspective(sm_mat4d* out, f64 n, f64 f, Radian_d vfov, Radian_d hfov){
+}
+/** @} **/
+
+/**
+ * \defgroup sm_mat4_ortho
+ * @brief Orthographic Projection Matrix
+ * @param out mat4
+ * @param n near clipping plane z+ direction
+ * @param f far clipping plane z+ direction
+ * @param l left clipping plane x- direction
+ * @param r right clipping plane x+ direction
+ * @param t top clipping plane y- direction
+ * @param b bottom clipping plane y+ direction
+ * @retval returns a projection matrix from camera to clip space
+ *
+ * Currently Complete - Pending Testing
+ *
+ * @{
+ */
+
+SM_INLINE void sm_mat4_i32_ortho(sm_mat4i* out, i32 n, i32 f, i32 l, i32 r, i32 t, i32 b) {
+    i32 horizontal_span = r - l;
+    i32 vertical_span = b - t;
+    i32 depth_span = f - n;
+
+    out->a = (sm_vec4i){
+        2.0/horizontal_span,
+        0,
+        0, 
+        0
+    };
+
+    out->b = (sm_vec4i){
+        0,
+        2/vertical_span,
+        0,
+        0
+    };
+    out->c = (sm_vec4i){
+        0,
+        0,
+        1/depth_span,
+        0
+    };
+    out->d = (sm_vec4i){
+        -(r+l)/horizontal_span,
+        -(b+t)/vertical_span,
+        -(n)/depth_span,
+        1
+    };
+}
+
+SM_INLINE void sm_mat4_i64_ortho(sm_mat4l* out, i64 n, i64 f, i64 l, i64 r, i64 t, i64 b) {
+    i64 horizontal_span = r - l;
+    i64 vertical_span = b - t;
+    i64 depth_span = f - n;
+
+    out->a = (sm_vec4l){
+        2.0/horizontal_span,
+        0,
+        0, 
+        0
+    };
+
+    out->b = (sm_vec4l){
+        0,
+        2/vertical_span,
+        0,
+        0
+    };
+    out->c = (sm_vec4l){
+        0,
+        0,
+        1/depth_span,
+        0
+    };
+    out->d = (sm_vec4l){
+        -(r+l)/horizontal_span,
+        -(b+t)/vertical_span,
+        -(n)/depth_span,
+        1
+    };
+}
+
+SM_INLINE void sm_mat4_f32_ortho(sm_mat4f* out, f32 n, f32 f, f32 l, f32 r, f32 t, f32 b) {
+    f32 horizontal_span = r - l;
+    f32 vertical_span = b - t;
+    f32 depth_span = f - n;
+
+    out->a = (sm_vec4f){
+        2.0f/horizontal_span,
+        0.0f,
+        0.0f, 
+        0.0f
+    };
+
+    out->b = (sm_vec4f){
+        0.0f,
+        2.0f/vertical_span,
+        0.0f,
+        0.0f
+    };
+    out->c = (sm_vec4f){
+        0.0f,
+        0.0f,
+        1.0f/depth_span,
+        0.0f
+    };
+    out->d = (sm_vec4f){
+        -(r+l)/horizontal_span,
+        -(b+t)/vertical_span,
+        -(n)/depth_span,
+        1.0f
+    };
+}
+
+SM_INLINE void sm_mat4_f64_ortho(sm_mat4d* out, f64 n, f64 f, f64 l, f64 r, f64 t, f64 b) {
+    f64 horizontal_span = r - l;
+    f64 vertical_span = b - t;
+    f64 depth_span = f - n;
+
+    out->a = (sm_vec4d){
+        2.0/horizontal_span,
+        0.0,
+        0.0, 
+        0.0
+    };
+
+    out->b = (sm_vec4d){
+        0.0,
+        2.0/vertical_span,
+        0.0,
+        0.0
+    };
+    out->c = (sm_vec4d){
+        0.0,
+        0.0,
+        1.0/depth_span,
+        0.0
+    };
+    out->d = (sm_vec4d){
+        -(r+l)/horizontal_span,
+        -(b+t)/vertical_span,
+        -(n)/depth_span,
+        1.0
+    };
+}
 
 /** @} **/
 
