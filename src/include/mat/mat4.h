@@ -1,5 +1,6 @@
 #ifndef SIMPLE_MAT_4_H
 #define SIMPLE_MAT_4_H
+#include "stdio.h"
 #include "common.h"
 #include "angles.h"
 #include "vec4.h"
@@ -43,6 +44,66 @@ typedef struct {
    sm_vec4d d; /** 4 component 64bit float column**/
 } sm_mat4d;
 /** @} */
+
+
+/**
+ * \defgroup sm_mat4_print
+ * @param stream FILE* to output stream. ex: stdout, stderr, etc.
+ * @param m mat4 to be printed
+ *
+ * prints values of mat4 to
+ * stream. Can be directed to file etc.
+ *
+ * @{
+ */
+SM_INLINE void sm_mat4_i32_print(FILE* stream, sm_mat4i* m) {
+    fprintf(stream, "%d\t%d\t%d\t%d\n"
+                    "%d\t%d\t%d\t%d\n"
+                    "%d\t%d\t%d\t%d\n"
+                    "%d\t%d\t%d\t%d\n",
+                    m->a.x, m->b.x, m->c.x, m->d.x,
+                    m->a.y, m->b.y, m->c.y, m->d.y,
+                    m->a.z, m->b.z, m->c.z, m->d.z,
+                    m->a.w, m->b.w, m->c.w, m->d.w);
+}
+
+SM_INLINE void sm_mat4_i64_print(FILE* stream, sm_mat4l* m) {
+    fprintf(stream, "%ld\t%ld\t%ld\t%ld\n"
+                    "%ld\t%ld\t%ld\t%ld\n"
+                    "%ld\t%ld\t%ld\t%ld\n"
+                    "%ld\t%ld\t%ld\t%ld\n",
+                    m->a.x, m->b.x, m->c.x, m->d.x,
+                    m->a.y, m->b.y, m->c.y, m->d.y,
+                    m->a.z, m->b.z, m->c.z, m->d.z,
+                    m->a.w, m->b.w, m->c.w, m->d.w);
+}
+
+SM_INLINE void sm_mat4_f32_print(FILE* stream, sm_mat4f* m) {
+    fprintf(stream, "%f\t%f\t%f\t%f\n"
+                    "%f\t%f\t%f\t%f\n"
+                    "%f\t%f\t%f\t%f\n"
+                    "%f\t%f\t%f\t%f\n",
+                    m->a.x, m->b.x, m->c.x, m->d.x,
+                    m->a.y, m->b.y, m->c.y, m->d.y,
+                    m->a.z, m->b.z, m->c.z, m->d.z,
+                    m->a.w, m->b.w, m->c.w, m->d.w);
+}
+
+SM_INLINE void sm_mat4_f64_print(FILE* stream, sm_mat4d* m) {
+    fprintf(stream, "%f\t%f\t%f\t%f\n"
+                    "%f\t%f\t%f\t%f\n"
+                    "%f\t%f\t%f\t%f\n"
+                    "%f\t%f\t%f\t%f\n",
+                    m->a.x, m->b.x, m->c.x, m->d.x,
+                    m->a.y, m->b.y, m->c.y, m->d.y,
+                    m->a.z, m->b.z, m->c.z, m->d.z,
+                    m->a.w, m->b.w, m->c.w, m->d.w);
+}
+/** @} **/
+
+
+
+
 
 
 /**
@@ -622,34 +683,182 @@ SM_INLINE void sm_mat4_f64_scale(sm_mat4d* out, f64 scale) {
 /** @} **/
 
 /**
- * \defgroup sm_mat4_rotate
+ * \defgroup sm_mat4_r
  * @brief Matrix rotate
- * @param out mat4
- * @param a mat4
- * @param b mat4
- * @retval specifies rotate in 3d space
+ * @param m mat4
+ * @param a angle in Radians
+ * @retval specifies rotation in 3d space
+ * 
+ * Specifies Euler rotation.
+ * Can be combined using the
+ * sm_mat4_comp functions.
  *
- *
- * Not Implemented
- *
+ * Not supported for integer matricies
+ * (precision issues)
  *
  * @{
  */
 
-SM_INLINE void sm_mat4_i32_rotate(sm_mat4i* out, i32 x, i32 y, i32 z) {
-
+SM_INLINE void sm_mat4_f32_rx(sm_mat4f* m, Radian a) {
+    m->a = (sm_vec4f) {
+        1.0f,
+        0,
+        0,
+        0
+    };
+    m->b = (sm_vec4f) {
+        0,
+        cosf(a),
+        sinf(a),
+        0
+    };
+    m->c = (sm_vec4f) {
+        0,
+        -sinf(a),
+        cosf(a),
+        0
+    };
+    m->d = (sm_vec4f) {
+        0,
+        0,
+        0,
+        1.0f
+    };
 }
 
-SM_INLINE void sm_mat4_i64_rotate(sm_mat4l* out, i64 x, i64 y, i64 z) {
-
+SM_INLINE void sm_mat4_f32_ry(sm_mat4f* m, Radian a) {
+    m->a = (sm_vec4f){
+        cosf(a),
+        0,
+        -sinf(a),
+        0
+    };
+    m->b = (sm_vec4f){
+        0,
+        1.0f,
+        0,
+        0
+    };
+    m->c = (sm_vec4f){
+        sinf(a),
+        0,
+        cosf(a),
+        0
+    };
+    m->d = (sm_vec4f){
+        0,
+        0,
+        0,
+        1.0f
+    };
 }
 
-SM_INLINE void sm_mat4_f32_rotate(sm_mat4f* out, f32 x, f32 y, f32 z) {
-
+SM_INLINE void sm_mat4_f32_rz(sm_mat4f* m, Radian a) {
+    m->a = (sm_vec4f){
+        cosf(a),
+        sinf(a),
+        0,
+        0
+    };
+    m->b = (sm_vec4f){
+        -sinf(a),
+        cosf(a),
+        0,
+        0
+    };
+    m->c = (sm_vec4f){
+        0,
+        0,
+        1.0f,
+        0
+    };
+    m->d = (sm_vec4f){
+        0,
+        0,
+        0,
+        1.0f
+    };
 }
 
-SM_INLINE void sm_mat4_f64_rotate(sm_mat4d* out, f64 x, f64 y, f64 z) {
+SM_INLINE void sm_mat4_f64_rx(sm_mat4d* m, Radian a) {
+    m->a = (sm_vec4d) {
+        1.0,
+        0,
+        0,
+        0
+    };
+    m->b = (sm_vec4d) {
+        0,
+        cos(a),
+        sin(a),
+        0
+    };
+    m->c = (sm_vec4d) {
+        0,
+        -sin(a),
+        cos(a),
+        0
+    };
+    m->d = (sm_vec4d) {
+        0,
+        0,
+        0,
+        1.0
+    };
+}
 
+SM_INLINE void sm_mat4_f64_ry(sm_mat4d* m, Radian a) {
+    m->a = (sm_vec4d){
+        cos(a),
+        0,
+        -sin(a),
+        0
+    };
+    m->b = (sm_vec4d){
+        0,
+        1.0,
+        0,
+        0
+    };
+    m->c = (sm_vec4d){
+        -sin(a),
+        0,
+        cos(a),
+        0
+    };
+    m->d = (sm_vec4d){
+        0,
+        0,
+        0,
+        1.0
+    };
+}
+
+SM_INLINE void sm_mat4_f64_rz(sm_mat4d* m, Radian a) {
+    m->a = (sm_vec4d){
+        cos(a),
+        sin(a),
+        0,
+        0
+    };
+    m->b = (sm_vec4d){
+        -sin(a),
+        cos(a),
+        0,
+        0
+    };
+    m->c = (sm_vec4d){
+        0,
+        0,
+        1.0,
+        0
+    };
+    m->d = (sm_vec4d){
+        0,
+        0,
+        0,
+        1.0
+    };
 }
 /** @} **/
 
@@ -664,24 +873,133 @@ SM_INLINE void sm_mat4_f64_rotate(sm_mat4d* out, f64 x, f64 y, f64 z) {
  * @param hfov angular size along the horizontal axis
  * @retval returns a projection matrix from camera space to clip space
  *
- * Not Implemented
- *
- *
- *
  * @{
  */
 
 SM_INLINE void sm_mat4_i32_perspective(sm_mat4i* out, i32 n, i32 f, Radian vfov, Radian hfov){
+    i32 hoffset = n*tanf(hfov)/2;
+    i32 voffset = n*tanf(vfov)/2; 
+    i32 dDiff = f - n;
+    
+    out->a = (sm_vec4i){
+        2*n,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4i){
+        0,
+        n/voffset,
+        0,
+        0
+    };
+    out->c = (sm_vec4i){
+        0,
+        0,
+        f/(dDiff),
+        1
+    };
+    out->d = (sm_vec4i){
+        0,
+        0,
+        (n*f)/dDiff,
+        0
+    };
 }
 
 SM_INLINE void sm_mat4_i64_perspective(sm_mat4l* out, i64 n, i64 f, Radian vfov, Radian hfov){
+    i64 hoffset = n*tanf(hfov)/2;
+    i64 voffset = n*tanf(vfov)/2; 
+    i64 dDiff = f - n;
+    
+    out->a = (sm_vec4l){
+        2*n,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4l){
+        0,
+        n/voffset,
+        0,
+        0
+    };
+    out->c = (sm_vec4l){
+        0,
+        0,
+        f/(dDiff),
+        1
+    };
+    out->d = (sm_vec4l){
+        0,
+        0,
+        (n*f)/dDiff,
+        0
+    };
 }
 
 SM_INLINE void sm_mat4_f32_perspective(sm_mat4f* out, f32 n, f32 f, Radian vfov, Radian hfov){
+    f32 hoffset = n*tanf(hfov)/2;
+    f32 voffset = n*tanf(vfov)/2; 
+    f32 dDiff = f - n;
+    
+    out->a = (sm_vec4f){
+        2*n,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4f){
+        0,
+        n/voffset,
+        0,
+        0
+    };
+    out->c = (sm_vec4f){
+        0,
+        0,
+        f/(dDiff),
+        1
+    };
+    out->d = (sm_vec4f){
+        0,
+        0,
+        (n*f)/dDiff,
+        0
+    };
 }
 
 SM_INLINE void sm_mat4_f64_perspective(sm_mat4d* out, f64 n, f64 f, Radian_d vfov, Radian_d hfov){
+    f64 hoffset = n*tan(hfov)/2;
+    f64 voffset = n*tan(vfov)/2; 
+    f64 dDiff = f - n;
+    
+    out->a = (sm_vec4d){
+        2*n,
+        0,
+        0,
+        0
+    };
+    out->b = (sm_vec4d){
+        0,
+        n/voffset,
+        0,
+        0
+    };
+    out->c = (sm_vec4d){
+        0,
+        0,
+        f/(dDiff),
+        1
+    };
+    out->d = (sm_vec4d){
+        0,
+        0,
+        (n*f)/dDiff,
+        0
+    };
 }
+
 /** @} **/
 
 /**

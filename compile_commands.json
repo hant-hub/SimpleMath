@@ -5,6 +5,7 @@
    "clang",
    "-I./src/test/..",
    "-I./src/test/../include",
+   "-I./src/test/../include/ease",
    "-I./src/test/../include/mat",
    "-I./src/test/../include/trig",
    "-I./src/test/../include/vec",
@@ -12,6 +13,7 @@
    "-MMD",
    "-MP",
    "-c",
+   "-fPIE",
    "src/test/main.c",
    "-o",
    "build/./src/test/main.c.o"

@@ -1,7 +1,9 @@
+#include "common.h"
 #include "vec2.h"
 #include "vec3.h"
 #include "vec4.h"
 #include "mat4.h"
+#include "misc.h"
 #include <stdio.h>
 
 int main() {
@@ -28,35 +30,38 @@ int main() {
 
     sm_mat4f out;
     sm_mat4_f32_comp(&out, &mat1, &mat2);
+    sm_mat4_f32_print(stdout, &out);
 
-    printf("Matrix Comp:\n");
-    printf("%f\t", out.a.x); 
-    printf("%f\t", out.b.x); 
-    printf("%f\t", out.c.x); 
-    printf("%f\t", out.d.x); 
-    printf("\n");
-
-    printf("%f\t", out.a.y); 
-    printf("%f\t", out.b.y); 
-    printf("%f\t", out.c.y); 
-    printf("%f\t", out.d.y); 
-    printf("\n");
-
-    printf("%f\t", out.a.z); 
-    printf("%f\t", out.b.z); 
-    printf("%f\t", out.c.z); 
-    printf("%f\t", out.d.z); 
-    printf("\n");
-
-    printf("%f\t", out.a.w); 
-    printf("%f\t", out.b.w); 
-    printf("%f\t", out.c.w); 
-    printf("%f\t", out.d.w); 
-    printf("\n");
+    printf("Complex Test\n");
+    sm_complexf a = 1 + 2i;
+    sm_complexf b = a * 2;
+    sm_complex_f32_print(stdout, a * b);
 
 
+    printf("Ortho Test\n");
+    sm_mat4f ortho_test;
+    sm_mat4_f32_ortho(&ortho_test, 1, 2, 0, 1, 0, 1);
+    sm_mat4_f32_print(stdout, &ortho_test);
+    
+    
+    printf("Perspective Test\n");
+    sm_mat4f perp_test;
+    sm_mat4_f32_perspective(&perp_test, 1, 2, SM_PI/4, SM_PI/4);
+    sm_mat4_f32_print(stdout, &perp_test);
 
+    printf("Euler Rotation Test\n");
+    printf("\trx\n");
+    sm_mat4f m1;
+    sm_mat4_f32_rx(&m1, SM_PI/2);
+    sm_mat4_f32_print(stdout, &m1);
 
+    printf("\try\n");
+    sm_mat4_f32_ry(&m1, SM_PI/2);
+    sm_mat4_f32_print(stdout, &m1);
+
+    printf("\trz\n");
+    sm_mat4_f32_rz(&m1, SM_PI/2);
+    sm_mat4_f32_print(stdout, &m1);
 
     return 0;
 }
