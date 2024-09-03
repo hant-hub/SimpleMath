@@ -19,10 +19,17 @@ SM_INLINE void sm_complex_i32_print(FILE* stream, sm_complexi val) {
     fprintf(stream, "%d + %di\n", __real__ val, __imag__ val);
 }
 
+SM_INLINE void sm_complex_i64_print(FILE* stream, sm_complexl val) {
+    fprintf(stream, "%ld + %ldi\n", __real__ val, __imag__ val);
+}
+
 SM_INLINE void sm_complex_f32_print(FILE* stream, sm_complexf val) {
     fprintf(stream, "%f + %fi\n", __real__ val, __imag__ val);
 }
 
+SM_INLINE void sm_complex_f64_print(FILE* stream, sm_complexd val) {
+    fprintf(stream, "%f + %fi\n", __real__ val, __imag__ val);
+}
 
 //Rotors
 // TODO
