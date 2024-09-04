@@ -902,7 +902,7 @@ SM_INLINE void sm_mat4_i32_perspective(sm_mat4i* out, i32 n, i32 f, Radian vfov,
     out->d = (sm_vec4i){
         0,
         0,
-        (n*f)/dDiff,
+        -(n*f)/dDiff,
         0
     };
 }
@@ -933,7 +933,7 @@ SM_INLINE void sm_mat4_i64_perspective(sm_mat4l* out, i64 n, i64 f, Radian vfov,
     out->d = (sm_vec4l){
         0,
         0,
-        (n*f)/dDiff,
+        -(n*f)/dDiff,
         0
     };
 }
@@ -964,7 +964,7 @@ SM_INLINE void sm_mat4_f32_perspective(sm_mat4f* out, f32 n, f32 f, Radian vfov,
     out->d = (sm_vec4f){
         0,
         0,
-        (n*f)/dDiff,
+        -(n*f)/dDiff,
         0
     };
 }
@@ -995,7 +995,7 @@ SM_INLINE void sm_mat4_f64_perspective(sm_mat4d* out, f64 n, f64 f, Radian_d vfo
     out->d = (sm_vec4d){
         0,
         0,
-        (n*f)/dDiff,
+        -(n*f)/dDiff,
         0
     };
 }
