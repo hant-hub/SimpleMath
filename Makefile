@@ -15,6 +15,7 @@ OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 # String substitution (suffix version without %).
 # As an example, ./build/hello.cpp.o turns into ./build/hello.cpp.d
 DEPS := $(OBJS:.o=.d)
+CC := clang
 
 # Every folder in ./src will need to be passed to GCC so that it can find header files
 INC_DIRS := $(shell find $(SRC_DIRS)/.. -type d)
@@ -32,7 +33,7 @@ $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 # Build step for C source
 $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c -fPIE $< -o $@
 
 
 
@@ -41,6 +42,7 @@ clean:
 	rm -r $(BUILD_DIR)
 
 test: $(BUILD_DIR)/$(TARGET_EXEC)
+	compiledb -n make
 	./$<
 
 
