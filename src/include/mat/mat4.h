@@ -125,10 +125,10 @@ SM_INLINE void sm_mat4_f64_print(FILE* stream, sm_mat4d* m) {
     {0, 0, 0, 1}, \
 }
 
-static sm_mat4i sm_mat4i_identity = SM_MAT4_IDENTITY;
-static sm_mat4l sm_mat4l_identity = SM_MAT4_IDENTITY;
-static sm_mat4f sm_mat4f_identity = SM_MAT4_IDENTITY;
-static sm_mat4d sm_mat4d_identity = SM_MAT4_IDENTITY;
+static const sm_mat4i sm_mat4i_identity = SM_MAT4_IDENTITY;
+static const sm_mat4l sm_mat4l_identity = SM_MAT4_IDENTITY;
+static const sm_mat4f sm_mat4f_identity = SM_MAT4_IDENTITY;
+static const sm_mat4d sm_mat4d_identity = SM_MAT4_IDENTITY;
 
 /** @} **/
 
