@@ -28,8 +28,7 @@ int main() {
         {0, 0, 0, 0}
     };
 
-    sm_mat4f out;
-    sm_mat4_f32_comp(&out, &mat1, &mat2);
+    sm_mat4f out = sm_mat4_f32_comp(&mat1, &mat2);
     sm_mat4_f32_print(stdout, &out);
 
     printf("Complex Test\n");
@@ -39,28 +38,25 @@ int main() {
 
 
     printf("Ortho Test\n");
-    sm_mat4f ortho_test;
-    sm_mat4_f32_ortho(&ortho_test, 1, 2, 0, 1, 0, 1);
+    sm_mat4f ortho_test = sm_mat4_f32_ortho(1, 2, 0, 1, 0, 1);
     sm_mat4_f32_print(stdout, &ortho_test);
     
     
     printf("Perspective Test\n");
-    sm_mat4f perp_test;
-    sm_mat4_f32_perspective(&perp_test, 1, 2, SM_PI/4, SM_PI/4);
+    sm_mat4f perp_test = sm_mat4_f32_perspective(1, 2, SM_PI/4, SM_PI/4);
     sm_mat4_f32_print(stdout, &perp_test);
 
     printf("Euler Rotation Test\n");
     printf("\trx\n");
-    sm_mat4f m1;
-    sm_mat4_f32_rx(&m1, SM_PI/2);
+    sm_mat4f m1 = sm_mat4_f32_rx(&sm_mat4f_identity, SM_PI/2);
     sm_mat4_f32_print(stdout, &m1);
 
     printf("\try\n");
-    sm_mat4_f32_ry(&m1, SM_PI/2);
+    m1 = sm_mat4_f32_ry(&sm_mat4f_identity, SM_PI/2);
     sm_mat4_f32_print(stdout, &m1);
 
     printf("\trz\n");
-    sm_mat4_f32_rz(&m1, SM_PI/2);
+    m1 = sm_mat4_f32_rz(&sm_mat4f_identity, SM_PI/2);
     sm_mat4_f32_print(stdout, &m1);
 
     return 0;
