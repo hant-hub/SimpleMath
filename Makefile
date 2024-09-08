@@ -43,7 +43,8 @@ clean:
 
 test: $(BUILD_DIR)/$(TARGET_EXEC)
 	compiledb -n make
-	./$<
+	./$< > output.txt
+	diff output.txt expected.txt
 
 
 # Include the .d makefiles. The - at the front suppresses the errors of missing

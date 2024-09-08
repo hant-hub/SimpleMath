@@ -141,7 +141,7 @@ static const sm_mat4d sm_mat4d_identity = SM_MAT4_IDENTITY;
  * @{
  */
 
-SM_INLINE sm_mat4i sm_mat4_i32_diag(sm_vec4i s) {
+SM_INLINE sm_mat4i sm_mat4_i32_diag(const sm_vec4i s) {
     return (sm_mat4i) {
         {s.x, 0, 0, 0},
         {0, s.y, 0, 0},
@@ -149,7 +149,7 @@ SM_INLINE sm_mat4i sm_mat4_i32_diag(sm_vec4i s) {
         {0, 0, 0, s.w},
     };
 }
-SM_INLINE sm_mat4l sm_mat4_i64_diag(sm_vec4l s) {
+SM_INLINE sm_mat4l sm_mat4_i64_diag(const sm_vec4l s) {
     return (sm_mat4l) {
         {s.x, 0, 0, 0},
         {0, s.y, 0, 0},
@@ -157,7 +157,7 @@ SM_INLINE sm_mat4l sm_mat4_i64_diag(sm_vec4l s) {
         {0, 0, 0, s.w},
     };
 }
-SM_INLINE sm_mat4f sm_mat4_f32_diag(sm_vec4f s) {
+SM_INLINE sm_mat4f sm_mat4_f32_diag(const sm_vec4f s) {
     return (sm_mat4f) {
         {s.x, 0, 0, 0},
         {0, s.y, 0, 0},
@@ -165,7 +165,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_diag(sm_vec4f s) {
         {0, 0, 0, s.w},
     };
 }
-SM_INLINE sm_mat4d sm_mat4_f64_diag(sm_vec4d s) {
+SM_INLINE sm_mat4d sm_mat4_f64_diag(const sm_vec4d s) {
     return (sm_mat4d) {
         {s.x, 0, 0, 0},
         {0, s.y, 0, 0},
@@ -192,7 +192,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_diag(sm_vec4d s) {
  * @{
  */
 /** @brief 32 Bit Integer **/
-SM_INLINE sm_mat4i sm_mat4_i32_add(sm_mat4i* restrict a, sm_mat4i* restrict b) {
+SM_INLINE sm_mat4i sm_mat4_i32_add(const sm_mat4i* restrict a, const sm_mat4i* restrict b) {
     return (sm_mat4i){
             sm_vec4_i32_add(a->a, b->a),
             sm_vec4_i32_add(a->b, b->b),
@@ -202,7 +202,7 @@ SM_INLINE sm_mat4i sm_mat4_i32_add(sm_mat4i* restrict a, sm_mat4i* restrict b) {
 }
 
 /** @brief 64 Bit Integer **/
-SM_INLINE sm_mat4l sm_mat4_i64_add(sm_mat4l* restrict a, sm_mat4l* restrict b) {
+SM_INLINE sm_mat4l sm_mat4_i64_add(const sm_mat4l* restrict a, const sm_mat4l* restrict b) {
     return (sm_mat4l){
             sm_vec4_i64_add(a->a, b->a),
             sm_vec4_i64_add(a->b, b->b),
@@ -212,7 +212,7 @@ SM_INLINE sm_mat4l sm_mat4_i64_add(sm_mat4l* restrict a, sm_mat4l* restrict b) {
 }
 
 /** @brief 32 Bit Float **/
-SM_INLINE sm_mat4f sm_mat4_f32_add(sm_mat4f* restrict a, sm_mat4f* restrict b) {
+SM_INLINE sm_mat4f sm_mat4_f32_add(const sm_mat4f* restrict a, const sm_mat4f* restrict b) {
     return (sm_mat4f){
             sm_vec4_f32_add(a->a, b->a),
             sm_vec4_f32_add(a->b, b->b),
@@ -222,7 +222,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_add(sm_mat4f* restrict a, sm_mat4f* restrict b) {
 }
 
 /** @brief 64 Bit Float **/
-SM_INLINE sm_mat4d sm_mat4_f64_add(sm_mat4d* restrict a, sm_mat4d* restrict b) {
+SM_INLINE sm_mat4d sm_mat4_f64_add(const sm_mat4d* restrict a, const sm_mat4d* restrict b) {
     return (sm_mat4d){
             sm_vec4_f64_add(a->a, b->a),
             sm_vec4_f64_add(a->b, b->b),
@@ -244,7 +244,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_add(sm_mat4d* restrict a, sm_mat4d* restrict b) {
  * @{
  */
 /** @brief 32 Bit Integer **/
-SM_INLINE sm_mat4i sm_mat4_i32_sub(sm_mat4i* restrict a, sm_mat4i* restrict b) {
+SM_INLINE sm_mat4i sm_mat4_i32_sub(const sm_mat4i* restrict a, const sm_mat4i* restrict b) {
     return (sm_mat4i){
             sm_vec4_i32_sub(a->a, b->a),
             sm_vec4_i32_sub(a->b, b->b),
@@ -254,7 +254,7 @@ SM_INLINE sm_mat4i sm_mat4_i32_sub(sm_mat4i* restrict a, sm_mat4i* restrict b) {
 }
 
 /** @brief 64 Bit Integer **/
-SM_INLINE sm_mat4l sm_mat4_i64_sub(sm_mat4l* restrict a, sm_mat4l* restrict b) {
+SM_INLINE sm_mat4l sm_mat4_i64_sub(const sm_mat4l* restrict a, const sm_mat4l* restrict b) {
     return (sm_mat4l){
             sm_vec4_i64_sub(a->a, b->a),
             sm_vec4_i64_sub(a->b, b->b),
@@ -264,7 +264,7 @@ SM_INLINE sm_mat4l sm_mat4_i64_sub(sm_mat4l* restrict a, sm_mat4l* restrict b) {
 }
 
 /** @brief 32 Bit Float **/
-SM_INLINE sm_mat4f sm_mat4_f32_sub(sm_mat4f* restrict a, sm_mat4f* restrict b) {
+SM_INLINE sm_mat4f sm_mat4_f32_sub(const sm_mat4f* restrict a, const sm_mat4f* restrict b) {
     return (sm_mat4f){
             sm_vec4_f32_sub(a->a, b->a),
             sm_vec4_f32_sub(a->b, b->b),
@@ -274,7 +274,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_sub(sm_mat4f* restrict a, sm_mat4f* restrict b) {
 }
 
 /** @brief 64 Bit Float **/
-SM_INLINE sm_mat4d sm_mat4_f64_sub(sm_mat4d* restrict a, sm_mat4d* restrict b) {
+SM_INLINE sm_mat4d sm_mat4_f64_sub(const sm_mat4d* restrict a, const sm_mat4d* restrict b) {
     return (sm_mat4d){
             sm_vec4_f64_sub(a->a, b->a),
             sm_vec4_f64_sub(a->b, b->b),
@@ -293,7 +293,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_sub(sm_mat4d* restrict a, sm_mat4d* restrict b) {
  * @{
  */
 /** @brief 32 bit Integer **/
-SM_INLINE sm_mat4i sm_mat4_i32_transpose(sm_mat4i* a) {
+SM_INLINE sm_mat4i sm_mat4_i32_transpose(const sm_mat4i* a) {
     return (sm_mat4i){
             { a->a.x, a->b.x, a->c.x, a->d.x },
             { a->a.y, a->b.y, a->c.y, a->d.y },
@@ -303,7 +303,7 @@ SM_INLINE sm_mat4i sm_mat4_i32_transpose(sm_mat4i* a) {
 }
 
 /** @brief 64 bit Integer **/
-SM_INLINE sm_mat4l sm_mat4_i64_transpose(sm_mat4l* a) {
+SM_INLINE sm_mat4l sm_mat4_i64_transpose(const sm_mat4l* a) {
     return (sm_mat4l){
             { a->a.x, a->b.x, a->c.x, a->d.x },
             { a->a.y, a->b.y, a->c.y, a->d.y },
@@ -313,7 +313,7 @@ SM_INLINE sm_mat4l sm_mat4_i64_transpose(sm_mat4l* a) {
 }
 
 /** @brief 32 bit float **/
-SM_INLINE sm_mat4f sm_mat4_f32_transpose(sm_mat4f* a) {
+SM_INLINE sm_mat4f sm_mat4_f32_transpose(const sm_mat4f* a) {
     return (sm_mat4f){
             { a->a.x, a->b.x, a->c.x, a->d.x },
             { a->a.y, a->b.y, a->c.y, a->d.y },
@@ -323,7 +323,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_transpose(sm_mat4f* a) {
 }
 
 /** @brief 64 bit float **/
-SM_INLINE sm_mat4d sm_mat4_f64_transpose(sm_mat4d* a) {
+SM_INLINE sm_mat4d sm_mat4_f64_transpose(const sm_mat4d* a) {
     return (sm_mat4d){
             { a->a.x, a->b.x, a->c.x, a->d.x },
             { a->a.y, a->b.y, a->c.y, a->d.y },
@@ -344,7 +344,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_transpose(sm_mat4d* a) {
  */
 
 /** @brief 32 Bit Integer **/
-SM_INLINE sm_mat4i sm_mat4_i32_comp(sm_mat4i* restrict a, sm_mat4i* restrict b) {
+SM_INLINE sm_mat4i sm_mat4_i32_comp(const sm_mat4i* restrict a, const sm_mat4i* restrict b) {
     sm_mat4i transpose = sm_mat4_i32_transpose(a);
     return (sm_mat4i){
             { sm_vec4_i32_dot(transpose.a, b->a), sm_vec4_i32_dot(transpose.b, b->a), sm_vec4_i32_dot(transpose.c, b->a), sm_vec4_i32_dot(transpose.d, b->a) },
@@ -356,7 +356,7 @@ SM_INLINE sm_mat4i sm_mat4_i32_comp(sm_mat4i* restrict a, sm_mat4i* restrict b) 
 }
 
 /** @brief 64 Bit Integer **/
-SM_INLINE sm_mat4l sm_mat4_i64_comp(sm_mat4l* restrict a, sm_mat4l* restrict b) {
+SM_INLINE sm_mat4l sm_mat4_i64_comp(const sm_mat4l* restrict a, const sm_mat4l* restrict b) {
     sm_mat4l transpose = sm_mat4_i64_transpose(a);
     return (sm_mat4l){
             { sm_vec4_i64_dot(transpose.a, b->a), sm_vec4_i64_dot(transpose.b, b->a), sm_vec4_i64_dot(transpose.c, b->a), sm_vec4_i64_dot(transpose.d, b->a) },
@@ -368,7 +368,7 @@ SM_INLINE sm_mat4l sm_mat4_i64_comp(sm_mat4l* restrict a, sm_mat4l* restrict b) 
 }
 
 /** @brief 32 Bit Float **/
-SM_INLINE sm_mat4f sm_mat4_f32_comp(sm_mat4f* restrict a, sm_mat4f* restrict b) {
+SM_INLINE sm_mat4f sm_mat4_f32_comp(const sm_mat4f* restrict a, const sm_mat4f* restrict b) {
     sm_mat4f transpose = sm_mat4_f32_transpose(a);
     return (sm_mat4f){
             { sm_vec4_f32_dot(transpose.a, b->a), sm_vec4_f32_dot(transpose.b, b->a), sm_vec4_f32_dot(transpose.c, b->a), sm_vec4_f32_dot(transpose.d, b->a) },
@@ -380,7 +380,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_comp(sm_mat4f* restrict a, sm_mat4f* restrict b) 
 }
 
 /** @brief 64 Bit Float **/
-SM_INLINE sm_mat4d sm_mat4_f64_comp(sm_mat4d* restrict a, sm_mat4d* restrict b) {
+SM_INLINE sm_mat4d sm_mat4_f64_comp(const sm_mat4d* restrict a, const sm_mat4d* restrict b) {
     sm_mat4d transpose = sm_mat4_f64_transpose(a);
     return (sm_mat4d){
             { sm_vec4_f64_dot(transpose.a, b->a), sm_vec4_f64_dot(transpose.b, b->a), sm_vec4_f64_dot(transpose.c, b->a), sm_vec4_f64_dot(transpose.d, b->a) },
@@ -406,28 +406,28 @@ SM_INLINE sm_mat4d sm_mat4_f64_comp(sm_mat4d* restrict a, sm_mat4d* restrict b) 
  * @{
  */
 /** @brief 32 Bit Integer **/
-SM_INLINE sm_mat4i sm_mat4_i32_translate(sm_mat4i* m, sm_vec3i delta) {
+SM_INLINE sm_mat4i sm_mat4_i32_translate(const sm_mat4i* m, const sm_vec3i delta) {
     sm_mat4i transform = SM_MAT4_IDENTITY;
     transform.d = (sm_vec4i){delta.x, delta.y, delta.z, 1};
     return sm_mat4_i32_comp(&transform, m);
 }
 
 /** @brief 64 Bit Integer **/
-SM_INLINE sm_mat4l sm_mat4_i64_translate(sm_mat4l* m, sm_vec3l delta) {
+SM_INLINE sm_mat4l sm_mat4_i64_translate(const sm_mat4l* m, const sm_vec3l delta) {
     sm_mat4l transform = SM_MAT4_IDENTITY;
     transform.d = (sm_vec4l){delta.x, delta.y, delta.z, 1};
     return sm_mat4_i64_comp(&transform, m);
 }
 
 /** @brief 32 Bit Float **/
-SM_INLINE sm_mat4f sm_mat4_f32_translate(sm_mat4f* m, sm_vec3f delta) {
+SM_INLINE sm_mat4f sm_mat4_f32_translate(const sm_mat4f* m, const sm_vec3f delta) {
     sm_mat4f transform = SM_MAT4_IDENTITY;
     transform.d = (sm_vec4f){delta.x, delta.y, delta.z, 1};
     return sm_mat4_f32_comp(&transform, m);
 }
 
 /** @brief 64 Bit Float **/
-SM_INLINE sm_mat4d sm_mat4_f64_translate(sm_mat4d* m, sm_vec3d delta) {
+SM_INLINE sm_mat4d sm_mat4_f64_translate(const sm_mat4d* m, const sm_vec3d delta) {
     sm_mat4d transform = SM_MAT4_IDENTITY;
     transform.d = (sm_vec4d){delta.x, delta.y, delta.z, 1};
     return sm_mat4_f64_comp(&transform, m);
@@ -445,7 +445,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_translate(sm_mat4d* m, sm_vec3d delta) {
  * @{
  */
 /* 32-bit Integer */
-SM_INLINE sm_mat4i sm_mat4_i32_scale(sm_mat4i* m, i32 scale) {
+SM_INLINE sm_mat4i sm_mat4_i32_scale(const sm_mat4i* m, const i32 scale) {
     sm_mat4i transform = {
         { scale, 0, 0, 0 },
         { 0, scale, 0, 0 },
@@ -456,7 +456,7 @@ SM_INLINE sm_mat4i sm_mat4_i32_scale(sm_mat4i* m, i32 scale) {
 }
 
 /* 64-bit Integer */
-SM_INLINE sm_mat4l sm_mat4_i64_scale(sm_mat4l* m, i64 scale) {
+SM_INLINE sm_mat4l sm_mat4_i64_scale(const sm_mat4l* m, const i64 scale) {
     sm_mat4l transform = {
         { scale, 0, 0, 0 },
         { 0, scale, 0, 0 },
@@ -467,7 +467,7 @@ SM_INLINE sm_mat4l sm_mat4_i64_scale(sm_mat4l* m, i64 scale) {
 }
 
 /* 32-bit Float */
-SM_INLINE sm_mat4f sm_mat4_f32_scale(sm_mat4f* m, f32 scale) {
+SM_INLINE sm_mat4f sm_mat4_f32_scale(const sm_mat4f* m, const f32 scale) {
     sm_mat4f transform = {
         { scale, 0, 0, 0 },
         { 0, scale, 0, 0 },
@@ -478,7 +478,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_scale(sm_mat4f* m, f32 scale) {
 }
 
 /* 64-bit Float */
-SM_INLINE sm_mat4d sm_mat4_f64_scale(sm_mat4d* m, f64 scale) {
+SM_INLINE sm_mat4d sm_mat4_f64_scale(const sm_mat4d* m, const f64 scale) {
     sm_mat4d transform = {
         { scale, 0, 0, 0 },
         { 0, scale, 0, 0 },
@@ -505,7 +505,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_scale(sm_mat4d* m, f64 scale) {
  * @{
  */
 
-SM_INLINE sm_mat4f sm_mat4_f32_rx(sm_mat4f* m, Radian a) {
+SM_INLINE sm_mat4f sm_mat4_f32_rx(const sm_mat4f* m, const Radian a) {
     sm_mat4f transform = {
         { 1.0f, 0,       0,       0    },
         { 0,    cosf(a), sinf(a), 0    },
@@ -515,7 +515,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_rx(sm_mat4f* m, Radian a) {
     return sm_mat4_f32_comp(&transform, m);
 }
 
-SM_INLINE sm_mat4f sm_mat4_f32_ry(sm_mat4f* m, Radian a) {
+SM_INLINE sm_mat4f sm_mat4_f32_ry(const sm_mat4f* m, const Radian a) {
     sm_mat4f transform = {
         { cosf(a), 0, -sinf(a), 0 },
         { 0, 1.0f, 0, 0 },
@@ -525,7 +525,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_ry(sm_mat4f* m, Radian a) {
     return sm_mat4_f32_comp(&transform, m);
 }
 
-SM_INLINE sm_mat4f sm_mat4_f32_rz(sm_mat4f* m, Radian a) {
+SM_INLINE sm_mat4f sm_mat4_f32_rz(const sm_mat4f* m, const Radian a) {
     sm_mat4f transform = {
         { cosf(a), sinf(a), 0, 0 },
         { -sinf(a), cosf(a), 0, 0 },
@@ -535,7 +535,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_rz(sm_mat4f* m, Radian a) {
     return sm_mat4_f32_comp(&transform, m);
 }
 
-SM_INLINE sm_mat4d sm_mat4_f64_rx(sm_mat4d* m, Radian a) {
+SM_INLINE sm_mat4d sm_mat4_f64_rx(const sm_mat4d* m, const Radian a) {
     sm_mat4d transform = {
         { 1.0, 0, 0, 0 },
         { 0, cos(a), sin(a), 0 },
@@ -545,7 +545,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_rx(sm_mat4d* m, Radian a) {
     return sm_mat4_f64_comp(&transform, m);
 }
 
-SM_INLINE sm_mat4d sm_mat4_f64_ry(sm_mat4d* m, Radian a) {
+SM_INLINE sm_mat4d sm_mat4_f64_ry(const sm_mat4d* m, const Radian a) {
     sm_mat4d transform = {
         { cos(a), 0, -sin(a), 0 },
         { 0, 1.0, 0, 0 },
@@ -555,7 +555,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_ry(sm_mat4d* m, Radian a) {
     return sm_mat4_f64_comp(&transform, m);
 }
 
-SM_INLINE sm_mat4d sm_mat4_f64_rz(sm_mat4d* m, Radian a) {
+SM_INLINE sm_mat4d sm_mat4_f64_rz(const sm_mat4d* m, const Radian a) {
     sm_mat4d transform = {
         { cos(a), sin(a), 0, 0 },
         { -sin(a), cos(a), 0, 0 },
