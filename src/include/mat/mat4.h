@@ -445,45 +445,45 @@ SM_INLINE sm_mat4d sm_mat4_f64_translate(const sm_mat4d* m, const sm_vec3d delta
  * @{
  */
 /* 32-bit Integer */
-SM_INLINE sm_mat4i sm_mat4_i32_scale(const sm_mat4i* m, const i32 scale) {
+SM_INLINE sm_mat4i sm_mat4_i32_scale(const sm_mat4i* m, const sm_vec4i scale) {
     sm_mat4i transform = {
-        { scale, 0, 0, 0 },
-        { 0, scale, 0, 0 },
-        { 0, 0, scale, 0 },
-        { 0, 0, 0, scale, }
+        { scale.x, 0, 0, 0 },
+        { 0, scale.y, 0, 0 },
+        { 0, 0, scale.z, 0 },
+        { 0, 0, 0, scale.w}
     };
     return sm_mat4_i32_comp(&transform, m);
 }
 
 /* 64-bit Integer */
-SM_INLINE sm_mat4l sm_mat4_i64_scale(const sm_mat4l* m, const i64 scale) {
+SM_INLINE sm_mat4l sm_mat4_i64_scale(const sm_mat4l* m, const sm_vec4l scale) {
     sm_mat4l transform = {
-        { scale, 0, 0, 0 },
-        { 0, scale, 0, 0 },
-        { 0, 0, scale, 0 },
-        { 0, 0, 0, scale, }
+        { scale.x, 0, 0, 0 },
+        { 0, scale.y, 0, 0 },
+        { 0, 0, scale.z, 0 },
+        { 0, 0, 0, scale.w }
     };
     return sm_mat4_i64_comp(&transform, m);
 }
 
 /* 32-bit Float */
-SM_INLINE sm_mat4f sm_mat4_f32_scale(const sm_mat4f* m, const f32 scale) {
+SM_INLINE sm_mat4f sm_mat4_f32_scale(const sm_mat4f* m, const sm_vec4f scale) {
     sm_mat4f transform = {
-        { scale, 0, 0, 0 },
-        { 0, scale, 0, 0 },
-        { 0, 0, scale, 0 },
-        { 0, 0, 0, scale, }
+        { scale.x, 0, 0, 0 },
+        { 0, scale.y, 0, 0 },
+        { 0, 0, scale.z, 0 },
+        { 0, 0, 0, scale.w }
     };
     return sm_mat4_f32_comp(&transform, m);
 }
 
 /* 64-bit Float */
-SM_INLINE sm_mat4d sm_mat4_f64_scale(const sm_mat4d* m, const f64 scale) {
+SM_INLINE sm_mat4d sm_mat4_f64_scale(const sm_mat4d* m, const sm_vec4d scale) {
     sm_mat4d transform = {
-        { scale, 0, 0, 0 },
-        { 0, scale, 0, 0 },
-        { 0, 0, scale, 0 },
-        { 0, 0, 0, scale, }
+        { scale.x, 0, 0, 0 },
+        { 0, scale.y, 0, 0 },
+        { 0, 0, scale.z, 0 },
+        { 0, 0, 0, scale.w }
     };
     return sm_mat4_f64_comp(&transform, m);
 }
