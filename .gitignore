@@ -2,4 +2,4 @@
 build
 docs
 .cache
-
+compile_commands.json
