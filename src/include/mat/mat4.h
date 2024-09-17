@@ -583,7 +583,7 @@ SM_INLINE sm_mat4i sm_mat4_i32_perspective(i32 n, i32 f, Radian vfov, f32 aspect
     i32 hoffset = voffset * aspect;
     i32 dDiff = f - n;
     return (sm_mat4i){ 
-            { 2*n, 0, 0, 0 },
+            { n/hoffset, 0, 0, 0 },
             { 0, n/voffset, 0, 0 },
             { 0, 0, f/(dDiff), 1 },
             { 0, 0, -(n*f)/dDiff, 0 },
@@ -596,7 +596,7 @@ SM_INLINE sm_mat4l sm_mat4_i64_perspective(i64 n, i64 f, Radian vfov, f32 aspect
     i64 dDiff = f - n;
     
     return (sm_mat4l) {
-            { 2*n, 0, 0, 0 },
+            { n/hoffset, 0, 0, 0 },
             { 0, n/voffset, 0, 0 },
             { 0, 0, f/(dDiff), 1 },
             { 0, 0, -(n*f)/dDiff, 0 },
@@ -608,7 +608,7 @@ SM_INLINE sm_mat4f sm_mat4_f32_perspective(f32 n, f32 f, Radian vfov, f32 aspect
     f32 hoffset = voffset * aspect;
     f32 dDiff = f - n;
     return (sm_mat4f){
-            { 2*n, 0, 0, 0 },
+            { n/hoffset, 0, 0, 0 },
             { 0, n/voffset, 0, 0 },
             { 0, 0, f/(dDiff), 1 },
             { 0, 0, -(n*f)/dDiff, 0 },
@@ -620,7 +620,7 @@ SM_INLINE sm_mat4d sm_mat4_f64_perspective(f64 n, f64 f, Radian_d vfov, f64 aspe
     f64 hoffset =voffset * aspect; 
     f64 dDiff = f - n;
     return (sm_mat4d){ 
-            { 2*n, 0, 0, 0 },
+            { n/hoffset, 0, 0, 0 },
             { 0, n/voffset, 0, 0 },
             { 0, 0, f/(dDiff), 1 },
             { 0, 0, -(n*f)/dDiff, 0 },
