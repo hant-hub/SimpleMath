@@ -43,7 +43,7 @@ int main() {
     
     
     printf("Perspective Test\n");
-    sm_mat4f perp_test = sm_mat4_f32_perspective(1, 2, SM_PI/4, SM_PI/4);
+    sm_mat4f perp_test = sm_mat4_f32_perspective(1, 2, SM_PI/4, 1920.0/1080.0);
     sm_mat4_f32_print(stdout, &perp_test);
 
     printf("Euler Rotation Test\n");

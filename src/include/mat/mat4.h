@@ -578,9 +578,9 @@ SM_INLINE sm_mat4d sm_mat4_f64_rz(const sm_mat4d* m, const Radian a) {
  *
  * @{
  */
-SM_INLINE sm_mat4i sm_mat4_i32_perspective(i32 n, i32 f, Radian vfov, Radian hfov){
-    i32 hoffset = n*tanf(hfov)/2;
+SM_INLINE sm_mat4i sm_mat4_i32_perspective(i32 n, i32 f, Radian vfov, f32 aspect){
     i32 voffset = n*tanf(vfov)/2; 
+    i32 hoffset = voffset * aspect;
     i32 dDiff = f - n;
     return (sm_mat4i){ 
             { 2*n, 0, 0, 0 },
@@ -590,9 +590,9 @@ SM_INLINE sm_mat4i sm_mat4_i32_perspective(i32 n, i32 f, Radian vfov, Radian hfo
     };
 }
 
-SM_INLINE sm_mat4l sm_mat4_i64_perspective(i64 n, i64 f, Radian vfov, Radian hfov){
-    i64 hoffset = n*tanf(hfov)/2;
+SM_INLINE sm_mat4l sm_mat4_i64_perspective(i64 n, i64 f, Radian vfov, f32 aspect){
     i64 voffset = n*tanf(vfov)/2; 
+    i64 hoffset = voffset * aspect;
     i64 dDiff = f - n;
     
     return (sm_mat4l) {
@@ -603,9 +603,9 @@ SM_INLINE sm_mat4l sm_mat4_i64_perspective(i64 n, i64 f, Radian vfov, Radian hfo
     };
 }
 
-SM_INLINE sm_mat4f sm_mat4_f32_perspective(f32 n, f32 f, Radian vfov, Radian hfov){
-    f32 hoffset = n*tanf(hfov)/2;
+SM_INLINE sm_mat4f sm_mat4_f32_perspective(f32 n, f32 f, Radian vfov, f32 aspect){
     f32 voffset = n*tanf(vfov)/2; 
+    f32 hoffset = voffset * aspect;
     f32 dDiff = f - n;
     return (sm_mat4f){
             { 2*n, 0, 0, 0 },
@@ -615,9 +615,9 @@ SM_INLINE sm_mat4f sm_mat4_f32_perspective(f32 n, f32 f, Radian vfov, Radian hfo
     };
 }
 
-SM_INLINE sm_mat4d sm_mat4_f64_perspective(f64 n, f64 f, Radian_d vfov, Radian_d hfov){
-    f64 hoffset = n*tan(hfov)/2;
+SM_INLINE sm_mat4d sm_mat4_f64_perspective(f64 n, f64 f, Radian_d vfov, f64 aspect){
     f64 voffset = n*tan(vfov)/2; 
+    f64 hoffset =voffset * aspect; 
     f64 dDiff = f - n;
     return (sm_mat4d){ 
             { 2*n, 0, 0, 0 },
