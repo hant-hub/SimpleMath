@@ -1,6 +1,6 @@
 #ifndef SIMPLE_VECTOR_2_H
 #define SIMPLE_VECTOR_2_H
-#include "include/common.h"
+#include "common.h"
 
 
 /**
